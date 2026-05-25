@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
 import Container from "@/components/ui/Container";
 
 export default function Hero() {
@@ -28,25 +29,9 @@ export default function Hero() {
 
           <div
             id="vehicle-selector"
-            className="animate-rise-delay-1 rounded-lg border border-white/20 bg-white/10 p-5 shadow-2xl shadow-slate-950/20 sm:p-7"
+            className="animate-rise-delay-1"
           >
-            <p className="text-lg font-semibold">Vehicle Selector</p>
-            <p className="mt-2 text-sm text-slate-200">
-              Form UI and API integration will be connected by the backend/form developer.
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                "Select Year",
-                "Select Make",
-                "Select Model",
-                "Select Part",
-              ].map((label) => (
-                <div key={label} className="rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-slate-200">
-                  {label}
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 rounded-md bg-white/10 px-4 py-3 text-sm text-slate-300">Loading form...</div>
+            <VehicleSelectorForm />
           </div>
         </div>
       </Container>
