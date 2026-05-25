@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-slate-700 pt-6 text-sm text-slate-400">
-          © 2026 Parts Central of Georgia. All Rights Reserved.
+          Copyright 2026 Parts Central of Georgia. All Rights Reserved.
         </div>
       </Container>
     </footer>

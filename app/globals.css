@@ -49,6 +49,42 @@ a {
   color: #7f1d1d;
 }
 
+.animate-rise {
+  animation: rise-in 650ms ease both;
+}
+
+.animate-rise-delay-1 {
+  animation: rise-in 650ms ease 120ms both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise-in 650ms ease 220ms both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-rise,
+  .animate-rise-delay-1,
+  .animate-rise-delay-2 {
+    animation: none;
+  }
+}
+
 .container-shell {
   margin-inline: auto;
   width: 100%;
@@ -67,3 +103,4 @@ a {
     padding-inline: 2rem;
   }
 }
+
