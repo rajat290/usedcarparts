@@ -10,6 +10,7 @@ const infoLinks = [
   { label: "Refund/Return Policy", href: "/refund-policy" },
   { label: "Terms and Conditions", href: "/terms" },
   { label: "Cookie Policy", href: "/cookie-policy" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Footer() {
