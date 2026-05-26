@@ -66,23 +66,18 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button
-            href="tel:7705984665"
-            size="md"
-            className="rounded-full tracking-wide shadow-lg shadow-primary/20 ring-1 ring-primary/10 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-          >
-            Call Now
-          </Button>
-        </div>
+        <div className="hidden lg:block" />
 
         <button
           type="button"
-          className="inline-flex items-center rounded-md border border-border px-3 py-2 text-secondary lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-secondary transition-colors duration-200 hover:border-primary hover:text-primary lg:hidden"
           onClick={() => setIsOpen(true)}
           aria-label="Open navigation menu"
         >
-          <span className="text-sm font-semibold">Menu</span>
+          <span className="sr-only">Open navigation menu</span>
+          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
       </Container>
 
