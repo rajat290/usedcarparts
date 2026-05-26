@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import Button from "@/components/ui/Button";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
@@ -52,8 +52,8 @@ export default function Hero() {
             <motion.div variants={child} className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
                 href="#vehicle-selector"
-                size="xl"
-                className="group relative overflow-hidden rounded-full bg-primary text-white shadow-xl shadow-black/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:bg-primary-dark active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
+                size="lg"
+                className="group relative overflow-hidden rounded-full bg-primary px-8 py-4 uppercase tracking-[0.08em] text-white shadow-xl shadow-black/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-2xl active:scale-[0.99]"
               >
                 <span className="relative z-10">Find A Part Now</span>
                 <span className="absolute inset-0 -translate-x-full bg-white/15 transition-transform duration-300 group-hover:translate-x-0" />
@@ -61,8 +61,8 @@ export default function Hero() {
               <Button
                 href="tel:7705984665"
                 variant="outline"
-                size="xl"
-                className="rounded-full border-white/30 bg-white/15 text-white shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/25 active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
+                size="lg"
+                className="rounded-full border-white/30 bg-white/15 px-8 py-4 uppercase tracking-[0.08em] text-white shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/25 active:scale-[0.99]"
               >
                 Call (770) 598-4665
               </Button>
@@ -74,7 +74,7 @@ export default function Hero() {
             variants={child}
             initial="hidden"
             animate="show"
-            className="rounded-[2rem] bg-transparent p-0"
+            className="relative -top-4 lg:-right-4 lg:-top-8"
           >
             <VehicleSelectorForm />
           </motion.div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { Phone } from "lucide-react";
 import { useState } from "react";
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
@@ -121,7 +120,7 @@ function SelectField({
     <label className="block">
       <span className="sr-only">{label}</span>
       <select
-        className="h-12 w-full rounded-md border border-slate-300 bg-white px-4 text-base text-slate-950 shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/50"
+        className="h-10 w-full rounded-md border border-sky-800/40 bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
         name={name}
         onChange={(event) => onChange?.(event.target.value)}
         required
@@ -150,7 +149,7 @@ function TextField({
     <label className="block">
       <span className="sr-only">{label}</span>
       <input
-        className="h-12 w-full rounded-md border border-slate-300 bg-white px-4 text-base text-slate-950 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-primary focus:ring-2 focus:ring-primary/50"
+        className="h-10 w-full rounded-md border border-sky-800/40 bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
         name={name}
         placeholder={placeholder}
         required
@@ -207,76 +206,56 @@ export default function VehicleSelectorForm() {
 
   return (
     <form
-      className="w-full max-w-lg overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-100 shadow-2xl shadow-black/20"
+      className="w-full max-w-xl rounded-xl border border-sky-300/30 bg-[linear-gradient(180deg,#10a8ee_0%,#0878bd_58%,#07507f_100%)] p-4 shadow-2xl shadow-black/25 sm:p-5"
       onSubmit={handleSubmit}
       id="vehicle-selector-form"
     >
-      <div className="bg-[#003f63] px-5 py-5 sm:px-6">
-        <h2 className="text-center text-2xl font-black leading-tight text-white sm:text-3xl">
-          Find A Part Now
-        </h2>
+      <h2 className="mb-4 text-center text-2xl font-black tracking-normal text-white sm:text-3xl">
+        Find Your Part Instantly
+      </h2>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        <SelectField label="Year" name="year" options={years} />
+        <SelectField
+          label="Make"
+          name="make"
+          onChange={(make) => {
+            setSelectedMake(make);
+            setSelectedModel(make === "Select Make" ? "Select make first" : "Select Model");
+          }}
+          options={makes}
+          value={selectedMake}
+        />
+        <SelectField
+          label="Model"
+          name="model"
+          onChange={setSelectedModel}
+          options={modelOptions}
+          value={selectedModel}
+        />
+        <SelectField label="Part" name="part" options={parts} />
+        <SelectField label="Engine Size" name="engineSize" options={engineSizes} />
+        <SelectField label="Transmission" name="transmission" options={transmissions} />
+        <TextField label="Full Name" name="fullName" placeholder="John Smith" />
+        <TextField label="Email" name="email" placeholder="john@example.com" type="email" />
+        <TextField label="Zip Code" name="zipCode" placeholder="12345" />
+        <TextField label="Phone" name="phone" placeholder="(123) 456-7890" type="tel" />
       </div>
 
-      <div className="space-y-4 p-4 sm:p-5">
-        <div className="rounded-3xl bg-slate-200 p-4 shadow-sm">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            Vehicle Information
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <SelectField label="Year" name="year" options={years} />
-            <SelectField
-              label="Make"
-              name="make"
-              onChange={(make) => {
-                setSelectedMake(make);
-                setSelectedModel(make === "Select Make" ? "Select make first" : "Select Model");
-              }}
-              options={makes}
-              value={selectedMake}
-            />
-            <SelectField
-              label="Model"
-              name="model"
-              onChange={setSelectedModel}
-              options={modelOptions}
-              value={selectedModel}
-            />
-            <SelectField label="Part" name="part" options={parts} />
-            <SelectField label="Engine Size" name="engineSize" options={engineSizes} />
-            <SelectField label="Transmission" name="transmission" options={transmissions} />
-          </div>
-        </div>
-
-        <div className="rounded-3xl bg-slate-200 p-4 shadow-sm">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            Contact Information
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <TextField label="Full Name" name="fullName" placeholder="John Smith" />
-            <TextField label="Email" name="email" placeholder="john@example.com" type="email" />
-            <TextField label="Zip Code" name="zipCode" placeholder="12345" />
-            <TextField label="Phone" name="phone" placeholder="(123) 456-7890" type="tel" />
-          </div>
-        </div>
-
-        <button
-          className="mt-3 h-12 w-full rounded-full bg-[#003f63] px-5 text-sm font-black text-white shadow-lg transition hover:bg-[#002d51] disabled:cursor-not-allowed disabled:opacity-70"
-          disabled={isSending}
-          type="submit"
-        >
-          {isSending ? "Sending..." : "Find My Part"}
-        </button>
-
-        <div className="rounded-3xl bg-[#003f63] px-4 py-3 text-white shadow-xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">
-            Need help now?
-          </p>
-          <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <span className="text-base font-semibold">(770) 598-4665</span>
-            <span className="text-xs text-slate-200">Call our parts team for instant assistance</span>
-          </div>
-        </div>
-      </div>
+      <button
+        className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-black text-slate-950 shadow-sm transition hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-70"
+        disabled={isSending}
+        type="submit"
+      >
+        {isSending ? (
+          "Sending..."
+        ) : (
+          <>
+            <span aria-hidden="true">&#128269;</span>
+            <span>Find My Part</span>
+          </>
+        )}
+      </button>
 
       {submitMessage ? (
         <p
@@ -291,13 +270,14 @@ export default function VehicleSelectorForm() {
       ) : null}
 
       <a
-        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-black text-slate-950 shadow-sm transition hover:bg-blue-50"
-        href="tel:8883382540"
+        className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-black text-black shadow-sm transition hover:bg-blue-50"
+        href="tel:7705984665"
       >
-        &#9742; (888) 338-2540
+        <span className="text-black">&#9742;</span>
+        <span className="text-black">(770) 598-4665</span>
       </a>
 
-      <div className="mt-4 border-t border-white/20 pt-4 text-center text-sm text-blue-50">
+      <div className="mt-3 border-t border-white/20 pt-3 text-center text-sm text-blue-50">
         <span className="mr-2">&#9671;</span>
         Your information is secure.
       </div>
