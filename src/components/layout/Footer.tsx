@@ -8,7 +8,7 @@ const infoLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Shipping Policy", href: "/shipping-policy" },
   { label: "Refund/Return Policy", href: "/refund-policy" },
-  { label: "Terms and Conditions", href: "/terms" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions" },
   { label: "Cookie Policy", href: "/cookie-policy" },
   { label: "FAQ", href: "/faq" },
 ];
