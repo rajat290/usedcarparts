@@ -172,6 +172,7 @@ export default function VehicleSelectorForm() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setSubmitStatus("sending");
     setSubmitMessage("");
 
@@ -194,7 +195,7 @@ export default function VehicleSelectorForm() {
 
       setSubmitStatus("success");
       setSubmitMessage(result.message ?? "Your request has been sent successfully.");
-      event.currentTarget.reset();
+      form.reset();
       setSelectedMake("Select Make");
       setSelectedModel("Select make first");
     } catch {
