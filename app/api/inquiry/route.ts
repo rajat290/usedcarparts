@@ -173,7 +173,7 @@ function readResponse(socket: net.Socket | tls.TLSSocket) {
 
     function onData(chunk: Buffer) {
       response += chunk.toString("utf8");
-      if (/\r?\n\d{3} /.test(response)) {
+      if (/(^|\r?\n)\d{3} /.test(response)) {
         cleanup();
         resolve(response);
       }
@@ -347,7 +347,8 @@ export async function POST(request: Request) {
         to: adminEmail,
       }),
     ]);
-  } catch {
+  } catch (error) {
+    console.error("Inquiry email failed:", error);
     return NextResponse.json(
       { message: "Email could not be sent. Please check SMTP settings." },
       { status: 500 },
