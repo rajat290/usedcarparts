@@ -90,7 +90,12 @@ export default function QualityParts() {
         </div>
 
         <Reveal className="mt-10 flex justify-center">
-          <Button href="/used-auto-parts" variant="outline" size="lg" className="shadow-sm transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]">
+          <Button
+            href="/used-auto-parts"
+            variant="primary"
+            size="xl"
+            className="rounded-full shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:bg-primary-dark active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
+          >
             View More
           </Button>
         </Reveal>

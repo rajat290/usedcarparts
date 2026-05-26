@@ -67,7 +67,11 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="tel:7705984665" size="sm">
+          <Button
+            href="tel:7705984665"
+            size="md"
+            className="rounded-full tracking-wide shadow-lg shadow-primary/20 ring-1 ring-primary/10 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+          >
             Call Now
           </Button>
         </div>

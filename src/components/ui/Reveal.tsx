@@ -24,9 +24,10 @@ export default function Reveal({ children, className, delay = 0 }: RevealProps) 
       className={className}
       variants={variants}
       initial="hidden"
+      animate="show"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay }}
+      transition={{ delay, duration: 0.55 }}
     >
       {children}
     </motion.div>

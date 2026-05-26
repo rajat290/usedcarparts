@@ -52,16 +52,17 @@ export default function Hero() {
             <motion.div variants={child} className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
                 href="#vehicle-selector"
-                size="lg"
-                className="shadow-lg shadow-black/20 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+                size="xl"
+                className="group relative overflow-hidden rounded-full bg-primary text-white shadow-xl shadow-black/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:bg-primary-dark active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
               >
-                Find A Part Now
+                <span className="relative z-10">Find A Part Now</span>
+                <span className="absolute inset-0 -translate-x-full bg-white/15 transition-transform duration-300 group-hover:translate-x-0" />
               </Button>
               <Button
                 href="tel:7705984665"
                 variant="outline"
-                size="lg"
-                className="border-white/40 bg-white/5 text-white shadow-lg shadow-black/10 transition-transform duration-200 hover:scale-[1.02] hover:bg-white/10 active:scale-[0.99]"
+                size="xl"
+                className="rounded-full border-white/30 bg-white/15 text-white shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/25 active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
               >
                 Call (770) 598-4665
               </Button>

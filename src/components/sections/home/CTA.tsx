@@ -21,16 +21,16 @@ export default function CTA() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
                 href="tel:7705984665"
-                size="lg"
-                className="shadow-lg shadow-black/20 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+                size="xl"
+                className="rounded-full bg-primary text-white shadow-2xl shadow-black/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:bg-primary-dark active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
               >
                 Call (770) 598-4665
               </Button>
               <Button
                 href="/contact"
                 variant="outline"
-                size="lg"
-                className="border-white/30 bg-transparent text-white shadow-lg shadow-black/10 transition-transform duration-200 hover:scale-[1.02] hover:bg-white/10 active:scale-[0.99]"
+                size="xl"
+                className="rounded-full border-white/30 bg-white/15 text-white shadow-2xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/25 active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
               >
                 Request a Quote
               </Button>
