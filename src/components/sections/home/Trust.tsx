@@ -1,6 +1,7 @@
 import { ShieldCheck, Truck, Wrench, Headset } from "lucide-react";
 
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const trustItems = [
@@ -28,29 +29,30 @@ const trustItems = [
 
 export default function Trust() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-20">
       <Container>
-        <SectionHeading
-          eyebrow="Why Drivers Choose Us"
-          title="Trusted Source for Reliable Used OEM Auto Parts"
-          description="Built for value, quality, and peace of mind every step of your repair journey."
-          align="center"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Why Drivers Choose Us"
+            title="Trusted Source for Reliable Used OEM Auto Parts"
+            description="Built for value, quality, and peace of mind every step of your repair journey."
+            align="center"
+          />
+        </Reveal>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {trustItems.map((item) => {
             const Icon = item.icon;
             return (
-              <article
-                key={item.title}
-                className="animate-rise rounded-lg border border-border bg-surface p-5 transition duration-200 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-md"
-              >
-                <div className="inline-flex rounded-lg bg-primary/10 p-2 text-primary">
-                  <Icon size={20} />
-                </div>
+              <Reveal key={item.title} delay={0.03}>
+                <article className="group rounded-xl border border-border bg-surface p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg">
+                  <div className="inline-flex rounded-xl bg-primary/15 p-3 text-primary transition-colors duration-300 group-hover:bg-primary/20">
+                    <Icon size={22} />
+                  </div>
                 <h3 className="mt-4 text-base font-semibold text-secondary">{item.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-muted">{item.description}</p>
-              </article>
+                </article>
+              </Reveal>
             );
           })}
         </div>

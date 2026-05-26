@@ -120,7 +120,7 @@ function SelectField({
     <label className="block">
       <span className="sr-only">{label}</span>
       <select
-        className="h-12 w-full rounded-md border border-sky-800/40 bg-white px-4 text-base text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
+        className="h-12 w-full rounded-md border border-sky-800/40 bg-white px-4 text-base text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
         name={name}
         onChange={(event) => onChange?.(event.target.value)}
         required
@@ -149,7 +149,7 @@ function TextField({
     <label className="block">
       <span className="sr-only">{label}</span>
       <input
-        className="h-12 w-full rounded-md border border-sky-800/40 bg-white px-4 text-base text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
+        className="h-12 w-full rounded-md border border-sky-800/40 bg-white px-4 text-base text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:border-primary focus:ring-2 focus:ring-primary/20"
         name={name}
         placeholder={placeholder}
         required

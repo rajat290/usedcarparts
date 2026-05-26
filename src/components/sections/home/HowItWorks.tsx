@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const steps = [
@@ -22,21 +23,33 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-surface py-16 sm:py-20">
+    <section className="bg-surface py-20">
       <Container>
-        <SectionHeading
-          eyebrow="How It Works"
-          title="A Simple 4-Step Process"
-          description="From request to delivery, we keep everything clear and hassle-free."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="How It Works"
+            title="A Simple 4-Step Process"
+            description="From request to delivery, we keep everything clear and hassle-free."
+          />
+        </Reveal>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
-            <article key={step.title} className="rounded-xl border border-border bg-white p-5">
-              <p className="text-sm font-semibold text-primary">Step {index + 1}</p>
-              <h3 className="mt-2 text-lg font-semibold text-secondary">{step.title}</h3>
-              <p className="mt-2 text-sm leading-7 text-muted">{step.description}</p>
-            </article>
+            <Reveal key={step.title} delay={index * 0.04}>
+              <article className="group relative rounded-xl border border-border bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg">
+                {index !== steps.length - 1 ? (
+                  <span className="pointer-events-none absolute right-6 top-7 hidden h-px w-16 bg-border lg:block" />
+                ) : null}
+                <div className="inline-flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-extrabold text-primary ring-1 ring-primary/15 transition-colors duration-300 group-hover:bg-primary/15">
+                    {index + 1}
+                  </span>
+                  <p className="text-sm font-semibold text-muted">Step</p>
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-secondary">{step.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{step.description}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </Container>
