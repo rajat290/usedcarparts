@@ -10,37 +10,37 @@ const parts = [
   {
     title: "Engine Assembly",
     description: "Quality used engine & transmission parts sold as complete assemblies.",
-    image: "/parts/engine-assembly.svg",
+    image: "/parts/Engine_Assembly (2).png",
     href: "/used-engines",
   },
   {
     title: "Transmission",
     description: "Reliable used transmissions matched to your vehicle for smooth performance.",
-    image: "/parts/transmission.svg",
+    image: "/parts/Transmission.png",
     href: "/used-transmissions",
   },
   {
     title: "ABS Module",
     description: "OEM ABS modules inspected for compatibility and dependable braking control.",
-    image: "/parts/abs-module.svg",
+    image: "/parts/ABS Module.png",
     href: "/used-auto-parts",
   },
   {
     title: "ABS System",
     description: "Quality used mechanical parts that get you back on the road for less money.",
-    image: "/parts/abs-system.svg",
+    image: "/parts/ABS System.png",
     href: "/used-auto-parts",
   },
   {
     title: "Spindle Knuckle - Front",
     description: "Connects suspension components and supports stable steering alignment.",
-    image: "/parts/spindle-knuckle-front.svg",
+    image: "/parts/spindle.png",
     href: "/used-auto-parts",
   },
   {
     title: "Head Light Assembly",
     description: "Important component of the car used for safer night visibility.",
-    image: "/parts/head-light-assembly.svg",
+    image: "/parts/head_light_assembly.png",
     href: "/used-auto-parts",
   },
 ];
@@ -51,39 +51,39 @@ export default function QualityParts() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Quality Used Auto Parts"
-            title="Popular Parts We Source Every Day"
-            description="Fast matching, verified fit, and warranty-backed support across major makes and models."
+            eyebrow="Premium Used OEM Parts"
+            title="Quality Used Auto Parts"
+            description="High-quality used parts with verified fitment, fast sourcing, and nationwide support."
             align="center"
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 lg:grid-cols-2 auto-rows-fr">
           {parts.map((part, index) => (
             <Reveal key={part.title} delay={index * 0.03}>
-              <article className="group rounded-xl border border-border bg-surface p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:bg-white hover:shadow-lg">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-white shadow-sm transition-all duration-300 group-hover:border-primary/30">
-                    <Image
-                      src={part.image}
-                      alt={part.title}
-                      width={56}
-                      height={56}
-                      className="h-12 w-12"
-                    />
+              <article className="group h-full overflow-hidden rounded-[2rem] border border-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:bg-white hover:shadow-xl">
+                <div className="grid h-full gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                      {part.title}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-bold text-secondary sm:text-3xl">
+                      {part.title}
+                    </h3>
+                    <p className="mt-5 text-base leading-8 text-muted">{part.description}</p>
+                    <Link
+                      href={part.href}
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary-dark"
+                    >
+                      Know More
+                      <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                    </Link>
                   </div>
-                  <h3 className="text-base font-semibold text-secondary">{part.title}</h3>
+
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] bg-white shadow-sm">
+                    <Image src={part.image} alt={part.title} fill className="object-contain" />
+                  </div>
                 </div>
-
-                <p className="mt-3 text-sm leading-7 text-muted">{part.description}</p>
-
-                <Link
-                  href={part.href}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary-dark"
-                >
-                  Know More
-                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                </Link>
               </article>
             </Reveal>
           ))}

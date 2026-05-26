@@ -40,17 +40,17 @@ export default function Trust() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
           {trustItems.map((item) => {
             const Icon = item.icon;
             return (
               <Reveal key={item.title} delay={0.03}>
-                <article className="group rounded-xl border border-border bg-surface p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg">
+                <article className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg">
                   <div className="inline-flex rounded-xl bg-primary/15 p-3 text-primary transition-colors duration-300 group-hover:bg-primary/20">
                     <Icon size={22} />
                   </div>
-                <h3 className="mt-4 text-base font-semibold text-secondary">{item.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-muted">{item.description}</p>
+                  <h3 className="mt-4 text-base font-semibold text-secondary">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-muted">{item.description}</p>
                 </article>
               </Reveal>
             );

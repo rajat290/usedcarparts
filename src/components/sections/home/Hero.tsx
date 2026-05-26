@@ -74,11 +74,9 @@ export default function Hero() {
             variants={child}
             initial="hidden"
             animate="show"
-            className="rounded-lg border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur-md"
+            className="rounded-[2rem] bg-transparent p-0"
           >
-            <div className="rounded-md border border-white/10 bg-white/5 p-4 sm:p-5">
-              <VehicleSelectorForm />
-            </div>
+            <VehicleSelectorForm />
           </motion.div>
         </div>
       </Container>
