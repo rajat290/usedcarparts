@@ -15,7 +15,7 @@ const infoLinks = [
 export default function Footer() {
   return (
     <footer className="mt-auto bg-secondary text-slate-200">
-      <Container className="py-14">
+      <Container className="py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <h3 className="text-lg font-semibold text-white">Parts Central of Georgia LLC</h3>
@@ -32,8 +32,12 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               {infoLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-slate-300 hover:text-white">
+                  <Link
+                    href={link.href}
+                    className="group relative inline-flex text-sm text-slate-300 transition-colors duration-200 hover:text-white"
+                  >
                     {link.label}
+                    <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white/70 transition-transform duration-200 group-hover:scale-x-100" />
                   </Link>
                 </li>
               ))}
@@ -53,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-700 pt-6 text-sm text-slate-400">
+        <div className="mt-12 border-t border-white/10 pt-7 text-sm text-slate-400">
           Copyright 2026 Parts Central of Georgia. All Rights Reserved.
         </div>
       </Container>

@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useEffect } from "react";
 
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
@@ -17,9 +19,26 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    function onScroll() {
+      setIsScrolled(window.scrollY > 6);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur">
+    <header
+      className={[
+        "sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur transition-shadow duration-200",
+        isScrolled ? "shadow-sm" : "shadow-none",
+      ].join(" ")}
+    >
       <Container className="flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
@@ -36,7 +55,11 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-secondary transition-colors hover:text-primary"
+              className={[
+                "relative text-sm font-medium text-secondary transition-colors duration-200 hover:text-primary",
+                "after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-200 hover:after:scale-x-100",
+                pathname === item.href ? "text-primary after:scale-x-100" : "",
+              ].join(" ")}
             >
               {item.label}
             </Link>
