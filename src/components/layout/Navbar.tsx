@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -35,19 +36,19 @@ export default function Navbar() {
   return (
     <header
       className={[
-        "sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur transition-shadow duration-200",
-        isScrolled ? "shadow-sm" : "shadow-none",
+        "sticky top-0 z-40 bg-primary text-white shadow-sm transition-shadow duration-200",
+        isScrolled ? "shadow-xl" : "shadow-sm",
       ].join(" ")}
     >
       <Container className="flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
-            PC
-          </span>
-          <div>
-            <p className="text-base font-bold leading-none text-secondary">Parts Central</p>
-            <p className="text-xs text-muted">Quality OEM Used Parts</p>
-          </div>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/navlogo%20(1).png"
+            alt="Parts Central logo"
+            width={220}
+            height={48}
+            className="object-contain"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -56,9 +57,9 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={[
-                "relative text-sm font-medium text-secondary transition-colors duration-200 hover:text-primary",
-                "after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-200 hover:after:scale-x-100",
-                pathname === item.href ? "text-primary after:scale-x-100" : "",
+                "relative text-sm font-medium text-white transition-colors duration-200 hover:text-amber-300",
+                "after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-amber-300 after:transition-transform after:duration-200 hover:after:scale-x-100",
+                pathname === item.href ? "text-amber-300 after:scale-x-100" : "",
               ].join(" ")}
             >
               {item.label}
