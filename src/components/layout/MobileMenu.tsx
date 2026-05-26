@@ -37,9 +37,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/40 lg:hidden" onClick={onClose}>
+    <div className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm lg:hidden" onClick={onClose}>
       <div
-        className="ml-auto flex h-full w-[82%] max-w-sm flex-col bg-white p-6"
+        className="ml-auto flex h-full w-[82%] max-w-sm flex-col bg-white p-6 shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between">
@@ -47,10 +47,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-md p-2 text-secondary hover:bg-slate-100"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-secondary transition-colors duration-200 hover:bg-slate-100"
             aria-label="Close navigation menu"
           >
-            ?
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
 
