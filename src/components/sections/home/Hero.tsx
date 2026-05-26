@@ -29,7 +29,7 @@ export default function Hero() {
 
           <div
             id="vehicle-selector"
-            className="animate-rise-delay-1"
+            className="relative -top-4 animate-rise-delay-1 lg:-right-4 lg:-top-8"
           >
             <VehicleSelectorForm />
           </div>

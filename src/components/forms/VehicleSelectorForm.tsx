@@ -120,7 +120,7 @@ function SelectField({
     <label className="block">
       <span className="sr-only">{label}</span>
       <select
-        className="h-12 w-full rounded-md border border-sky-800/40 bg-white px-4 text-base text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
+        className="h-10 w-full rounded-md border border-sky-800/40 bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
         name={name}
         onChange={(event) => onChange?.(event.target.value)}
         required
@@ -149,7 +149,7 @@ function TextField({
     <label className="block">
       <span className="sr-only">{label}</span>
       <input
-        className="h-12 w-full rounded-md border border-sky-800/40 bg-white px-4 text-base text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
+        className="h-10 w-full rounded-md border border-sky-800/40 bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
         name={name}
         placeholder={placeholder}
         required
@@ -206,15 +206,15 @@ export default function VehicleSelectorForm() {
 
   return (
     <form
-      className="w-full max-w-2xl rounded-xl border border-sky-300/30 bg-[linear-gradient(180deg,#10a8ee_0%,#0878bd_58%,#07507f_100%)] p-5 shadow-2xl shadow-black/25 sm:p-6"
+      className="w-full max-w-xl rounded-xl border border-sky-300/30 bg-[linear-gradient(180deg,#10a8ee_0%,#0878bd_58%,#07507f_100%)] p-4 shadow-2xl shadow-black/25 sm:p-5"
       onSubmit={handleSubmit}
       id="vehicle-selector-form"
     >
-      <h2 className="mb-5 text-center text-3xl font-black tracking-normal text-white sm:text-4xl">
+      <h2 className="mb-4 text-center text-2xl font-black tracking-normal text-white sm:text-3xl">
         Find Your Part Instantly
       </h2>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-2">
         <SelectField label="Year" name="year" options={years} />
         <SelectField
           label="Make"
@@ -243,11 +243,18 @@ export default function VehicleSelectorForm() {
       </div>
 
       <button
-        className="mt-4 h-12 w-full rounded-lg bg-white px-5 text-base font-black text-slate-950 shadow-sm transition hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-black text-slate-950 shadow-sm transition hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSending}
         type="submit"
       >
-        {isSending ? "Sending..." : "Find My Part"}
+        {isSending ? (
+          "Sending..."
+        ) : (
+          <>
+            <span aria-hidden="true">&#128269;</span>
+            <span>Find My Part</span>
+          </>
+        )}
       </button>
 
       {submitMessage ? (
@@ -263,13 +270,14 @@ export default function VehicleSelectorForm() {
       ) : null}
 
       <a
-        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-white px-5 text-base font-black text-slate-950 shadow-sm transition hover:bg-blue-50"
-        href="tel:8883382540"
+        className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-black text-black shadow-sm transition hover:bg-blue-50"
+        href="tel:7705984665"
       >
-        &#9742; (888) 338-2540
+        <span className="text-black">&#9742;</span>
+        <span className="text-black">(770) 598-4665</span>
       </a>
 
-      <div className="mt-4 border-t border-white/20 pt-4 text-center text-sm text-blue-50">
+      <div className="mt-3 border-t border-white/20 pt-3 text-center text-sm text-blue-50">
         <span className="mr-2">&#9671;</span>
         Your information is secure.
       </div>
