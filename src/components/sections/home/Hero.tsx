@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/Button";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
 import Container from "@/components/ui/Container";
