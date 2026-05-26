@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import MobileMenu from "@/components/layout/MobileMenu";
 
 const navItems = [
