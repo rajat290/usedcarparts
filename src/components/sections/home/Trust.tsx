@@ -34,15 +34,20 @@ export default function Trust() {
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-100"
         style={{ backgroundImage: "url('/websiteImages/bg-2.jpg')" }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/90 via-white/40 to-white/90" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/30 via-white/5 to-white/30" />
       <Container className="relative z-10">
         <Reveal>
-          <SectionHeading
-            eyebrow="Why Drivers Choose Us"
-            title="Trusted Source for Reliable Used OEM Auto Parts"
-            description="Built for value, quality, and peace of mind every step of your repair journey."
-            align="center"
-          />
+          <div className="mx-auto max-w-3xl text-center text-white">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
+              Why Drivers Choose Us
+            </p>
+            <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
+              Trusted Source for Reliable Used OEM Auto Parts
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-100 sm:text-base">
+              Built for value, quality, and peace of mind every step of your repair journey.
+            </p>
+          </div>
         </Reveal>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr">

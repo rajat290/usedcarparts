@@ -28,14 +28,20 @@ export default function HowItWorks() {
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-100"
         style={{ backgroundImage: "url('/websiteImages/bg-4.jpg')" }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/90 via-white/45 to-white/90" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/30 via-white/5 to-white/50" />
       <Container className="relative z-10">
         <Reveal>
-          <SectionHeading
-            eyebrow="How It Works"
-            title="A Simple 4-Step Process"
-            description="From request to delivery, we keep everything clear and hassle-free."
-          />
+          <div className="max-w-3xl text-center text-white">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
+              How It Works
+            </p>
+            <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
+              A Simple 4-Step Process
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-100 sm:text-base">
+              From request to delivery, we keep everything clear and hassle-free.
+            </p>
+          </div>
         </Reveal>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
