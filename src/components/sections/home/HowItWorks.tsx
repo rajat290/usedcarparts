@@ -23,8 +23,13 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-surface py-20">
-      <Container>
+    <section className="relative overflow-hidden bg-surface py-20">
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-100"
+        style={{ backgroundImage: "url('/websiteImages/bg-4.jpg')" }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/90 via-white/45 to-white/90" />
+      <Container className="relative z-10">
         <Reveal>
           <SectionHeading
             eyebrow="How It Works"
