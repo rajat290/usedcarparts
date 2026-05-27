@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Container from "@/components/ui/Container";
 import MobileMenu from "@/components/layout/MobileMenu";
@@ -24,9 +23,8 @@ export default function Navbar() {
 
   useEffect(() => {
     function onScroll() {
-      setIsScrolled(window.scrollY > 6);
+      setIsScrolled(window.scrollY > 8);
     }
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -35,54 +33,76 @@ export default function Navbar() {
   return (
     <header
       className={[
-        "sticky top-0 z-40 bg-primary text-white shadow-sm transition-shadow duration-200",
-        isScrolled ? "shadow-xl" : "shadow-sm",
+        "sticky top-0 z-40 transition-all duration-300",
+        isScrolled
+          ? "bg-slate-950/90 backdrop-blur-xl shadow-2xl shadow-black/40 border-b border-white/5"
+          : "bg-slate-950 border-b border-white/8",
       ].join(" ")}
     >
-      <Container className="flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center">
+      <Container className="flex h-[72px] items-center justify-between gap-8">
+        {/* Logo */}
+        <Link href="/" className="flex items-center shrink-0 group">
           <Image
             src="/navlogo%20(1).png"
             alt="Parts Central logo"
-            width={220}
-            height={48}
-            className="object-contain"
+            width={200}
+            height={44}
+            className="object-contain transition-opacity duration-200 group-hover:opacity-90"
+            priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={[
-                "relative text-sm font-medium text-white transition-colors duration-200 hover:text-amber-300",
-                "after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-amber-300 after:transition-transform after:duration-200 hover:after:scale-x-100",
-                pathname === item.href ? "text-amber-300 after:scale-x-100" : "",
-              ].join(" ")}
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={[
+                  "relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                  "hover:text-white hover:bg-white/8",
+                  isActive
+                    ? "text-cyan-400"
+                    : "text-slate-300",
+                ].join(" ")}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-5 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-600" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="hidden lg:block" />
+        {/* CTA + Hamburger */}
+        <div className="flex items-center gap-3">
+          <a
+            href="tel:7705984665"
+            className="hidden lg:inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 text-white text-sm font-semibold shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/45 hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            (770) 598-4665
+          </a>
 
-        <button
-          type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-secondary transition-colors duration-200 hover:border-primary hover:text-primary lg:hidden"
-          onClick={() => setIsOpen(true)}
-          aria-label="Open navigation menu"
-        >
-          <span className="sr-only">Open navigation menu</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </button>
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-all duration-200 hover:bg-white/12 hover:border-white/20 lg:hidden"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open navigation menu"
+          >
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
       </Container>
 
       <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </header>
   );
 }
-

@@ -9,7 +9,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const parts = [
   {
     title: "Engine Assembly",
-    description: "Quality used engine & transmission parts sold as complete assemblies.",
+    description: "Quality used engine and transmission parts sold as complete assemblies.",
     image: "/parts/Engine_Assembly (2).png",
     href: "/used-engines",
   },
@@ -27,19 +27,19 @@ const parts = [
   },
   {
     title: "ABS System",
-    description: "Quality used mechanical parts that get you back on the road for less money.",
+    description: "Quality used braking components ready for dependable daily driving.",
     image: "/parts/ABS System.png",
     href: "/used-auto-parts",
   },
   {
     title: "Spindle Knuckle - Front",
-    description: "Connects suspension components and supports stable steering alignment.",
+    description: "Supports stable steering geometry and suspension alignment integrity.",
     image: "/parts/spindle.png",
     href: "/used-auto-parts",
   },
   {
     title: "Head Light Assembly",
-    description: "Important component of the car used for safer night visibility.",
+    description: "Improves nighttime visibility with tested OEM fit and durability.",
     image: "/parts/head_light_assembly.png",
     href: "/used-auto-parts",
   },
@@ -47,42 +47,32 @@ const parts = [
 
 export default function QualityParts() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 text-white">
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Premium Used OEM Parts"
+            eyebrow="Popular Parts"
             title="Quality Used Auto Parts"
-            description="High-quality used parts with verified fitment, fast sourcing, and nationwide support."
+            description="Hand-picked, inspected OEM components with fast shipping and transparent pricing."
             align="center"
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-2 auto-rows-fr">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {parts.map((part, index) => (
             <Reveal key={part.title} delay={index * 0.03}>
-              <article className="group h-full overflow-hidden rounded-4xl border border-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:bg-white hover:shadow-xl">
-                <div className="grid h-full gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                      {part.title}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-bold text-secondary sm:text-3xl">
-                      {part.title}
-                    </h3>
-                    <p className="mt-5 text-base leading-8 text-muted">{part.description}</p>
-                    <Link
-                      href={part.href}
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary-dark"
-                    >
-                      Know More
-                      <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                    </Link>
+              <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 p-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(239,68,68,0.18),transparent_60%)]" />
+                <div className="relative flex h-full flex-col">
+                  <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white">
+                    <Image src={part.image} alt={part.title} fill className="object-contain p-4 transition-transform duration-300 group-hover:scale-105" />
                   </div>
-
-                  <div className="relative aspect-4/3 w-full overflow-hidden rounded-3xl bg-white shadow-sm">
-                    <Image src={part.image} alt={part.title} fill className="object-contain" />
-                  </div>
+                  <h3 className="text-xl font-bold text-white">{part.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-300">{part.description}</p>
+                  <Link href={part.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-red-300 transition-colors hover:text-red-200">
+                    Learn More
+                    <span aria-hidden="true">-&gt;</span>
+                  </Link>
                 </div>
               </article>
             </Reveal>
@@ -90,17 +80,11 @@ export default function QualityParts() {
         </div>
 
         <Reveal className="mt-10 flex justify-center">
-          <Button
-            href="/used-auto-parts"
-            variant="primary"
-            size="xl"
-            className="rounded-full shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:bg-primary-dark active:scale-[0.99] px-8 py-4 uppercase tracking-[0.08em]"
-          >
-            View More
+          <Button href="/used-auto-parts" variant="primary" size="xl" className="rounded-full px-9 py-4 uppercase tracking-[0.08em]">
+            View More Parts
           </Button>
         </Reveal>
       </Container>
     </section>
   );
 }
-

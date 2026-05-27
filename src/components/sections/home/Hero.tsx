@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
 import Container from "@/components/ui/Container";
@@ -11,80 +12,123 @@ const parent: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
   },
 };
 
 const child: Variants = {
-  hidden: { opacity: 0, y: 14 },
+  hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
+const stats = [
+  { value: "50K+", label: "Parts Sourced" },
+  { value: "60 Day", label: "Warranty" },
+  { value: "Free", label: "Nationwide Shipping" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-secondary text-white">
-      <div className="pointer-events-none absolute inset-0 opacity-40">
+    <section className="relative min-h-[640px] overflow-hidden bg-slate-950 text-white">
+      {/* Background image */}
+      <div className="pointer-events-none absolute inset-0">
         <Image
           src="/websiteImages/bg-4.jpg"
           alt="Car parts background"
           fill
-          className="object-cover"
+          className="object-cover opacity-20"
           sizes="100vw"
+          priority
         />
       </div>
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.98),rgba(31,41,55,0.88),rgba(215,50,45,0.48))]" />
-      <div className="absolute bottom-0 right-0 h-48 w-48 border-l border-t border-white/10 sm:h-72 sm:w-72" />
-      <Container className="relative py-14 sm:py-20 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <motion.div variants={parent} initial="hidden" animate="show">
-            <motion.p
-              variants={child}
-              className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-amber-300"
-            >
-              Premium Quality
-            </motion.p>
+
+      {/* Dark overlays + gradient orbs */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/95 to-slate-900/80" />
+      <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-cyan-600/10 blur-[120px] pointer-events-none" />
+      <div className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-amber-600/8 blur-[120px] pointer-events-none" />
+
+      {/* Grid texture */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <Container className="relative py-16 sm:py-24 lg:py-28">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+
+          {/* LEFT — copy */}
+          <motion.div variants={parent} initial="hidden" animate="show" className="max-w-xl">
+            <motion.div variants={child}>
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                Premium OEM Quality
+              </span>
+            </motion.div>
+
             <motion.h1
               variants={child}
-              className="max-w-xl text-4xl font-extrabold leading-[1.06] sm:text-5xl lg:max-w-2xl lg:text-6xl"
+              className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
             >
-              Used OEM Car Parts You Can Trust
+              Used OEM Car Parts{" "}
+              <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
+                You Can Trust
+              </span>
             </motion.h1>
+
             <motion.p
               variants={child}
-              className="mt-6 max-w-xl text-base leading-8 text-slate-200 sm:text-lg"
+              className="mt-6 text-base leading-8 text-slate-300 sm:text-lg"
             >
-              Affordable, tested replacements for every make and model. Find the part you need with confidence.
+              Affordable, tested OEM replacements for every make and model — shipped free nationwide with a 60-day warranty.
             </motion.p>
-            <motion.div variants={child} className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+            <motion.div variants={child} className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
                 href="#vehicle-selector"
                 size="lg"
-                className="group relative overflow-hidden rounded-full bg-primary px-8 py-4 uppercase tracking-[0.08em] text-white shadow-xl shadow-black/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-2xl active:scale-[0.99]"
+                className="rounded-xl px-8 tracking-wide uppercase text-sm"
               >
-                <span className="relative z-10">Find A Part Now</span>
-                <span className="absolute inset-0 -translate-x-full bg-white/15 transition-transform duration-300 group-hover:translate-x-0" />
+                Find a Part Now
               </Button>
               <Button
                 href="tel:7705984665"
                 variant="outline"
                 size="lg"
-                className="rounded-full border-white/30 bg-white/15 px-8 py-4 uppercase tracking-[0.08em] text-white shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/25 active:scale-[0.99]"
+                className="rounded-xl px-8 tracking-wide uppercase text-sm"
               >
-                Call (770) 598-4665
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                (770) 598-4665
               </Button>
+            </motion.div>
+
+            {/* Stats row */}
+            <motion.div variants={child} className="mt-10 flex flex-wrap gap-6 border-t border-white/8 pt-8">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-2xl font-extrabold text-white">{stat.value}</p>
+                  <p className="mt-0.5 text-xs font-medium text-slate-400 uppercase tracking-wider">{stat.label}</p>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
+          {/* RIGHT — form */}
           <motion.div
             id="vehicle-selector"
             variants={child}
             initial="hidden"
             animate="show"
-            className="relative -top-4 lg:-right-4 lg:-top-8"
+            className="flex justify-center lg:justify-end"
           >
             <VehicleSelectorForm />
           </motion.div>
@@ -93,4 +137,3 @@ export default function Hero() {
     </section>
   );
 }
-

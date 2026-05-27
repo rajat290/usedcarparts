@@ -1,68 +1,90 @@
 import { ShieldCheck, Truck, Search } from "lucide-react";
-
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
   {
-    title: "60 Days Warranty",
-    description: "We provide a warranty on most Parts Central type products, with extensions available for extra peace of mind.",
+    title: "60-Day Warranty",
+    description:
+      "We stand behind every part we ship. Most Parts Central products include a 60-day warranty, with extended coverage available.",
     bullets: [
-      "Warranty available on most Parts Central type parts.",
-      "Extended coverage offered on many products at competitive prices.",
+      "Warranty on most Parts Central type parts",
+      "Extended coverage available at competitive prices",
     ],
     icon: ShieldCheck,
+    badge: "Peace of Mind",
+    badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
   },
   {
     title: "Free Shipping",
-    description: "Quick, reliable shipping across the continental U.S. so your replacement part always arrives when you need it.",
+    description:
+      "Quick, reliable shipping across the continental U.S. so your replacement part arrives right when you need it.",
     bullets: [
-      "We ship used auto and truck parts anywhere in the U.S.,",
-      "Free shipping within the contiguous 48 US states.",
+      "Ships to all 50 US states",
+      "Free within the contiguous 48 states",
     ],
     icon: Truck,
+    badge: "Free USA",
+    badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
   },
   {
     title: "Search All Brands",
-    description: "Find the right OEM part for domestic and foreign vehicles with a wide brand catalog and fast sourcing.",
+    description:
+      "Find OEM parts for domestic and foreign vehicles. Our catalog covers hundreds of makes, models, and years.",
     bullets: [
-      "From aftermarket or replacement parts, we help you find the best.",
-      "Find offers for all brands and models in one place.",
+      "Domestic & foreign vehicle coverage",
+      "Aftermarket and OEM options available",
     ],
     icon: Search,
+    badge: "All Makes",
+    badgeColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
   },
 ];
 
 export default function Services() {
   return (
-    <section className="bg-surface py-20">
+    <section className="bg-slate-950 py-24 border-t border-white/5">
       <Container>
         <Reveal>
-          <SectionHeading
-            eyebrow="Services"
-            title="Millions of Quality Used OEM Parts"
-            description="We help you source the right part quickly with service benefits designed for confidence and convenience."
-            align="center"
-          />
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-300 mb-4">
+              Our Services
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Millions of Quality Used OEM Parts
+            </h2>
+            <p className="mt-4 text-base text-slate-400 max-w-xl mx-auto">
+              Source the right part quickly with benefits designed for confidence and convenience.
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => {
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, i) => {
             const Icon = service.icon;
             return (
-              <Reveal key={service.title} delay={index * 0.04}>
-                <article className="group rounded-3xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary/20">
-                    <Icon size={24} />
+              <Reveal key={service.title} delay={i * 0.08}>
+                <article className="group relative flex flex-col h-full rounded-2xl border border-white/8 bg-slate-900/70 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/14 hover:bg-slate-900 hover:shadow-2xl hover:shadow-black/40">
+                  {/* Top row */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex h-13 w-13 items-center justify-center rounded-xl border border-white/10 bg-slate-800 transition-colors duration-300 group-hover:border-white/20 group-hover:bg-slate-700">
+                      <Icon size={22} className="text-slate-300" />
+                    </div>
+                    <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-semibold ${service.badgeColor}`}>
+                      {service.badge}
+                    </span>
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-secondary">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted">{service.description}</p>
-                  <ul className="mt-5 space-y-3 text-sm text-muted">
+
+                  <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                  <p className="text-sm leading-7 text-slate-400 mb-5">{service.description}</p>
+
+                  <ul className="mt-auto space-y-2.5">
                     {service.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3">
-                        <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
-                        <span>{bullet}</span>
+                      <li key={bullet} className="flex items-start gap-2.5 text-sm text-slate-400">
+                        <svg className="mt-0.5 h-4 w-4 shrink-0 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        {bullet}
                       </li>
                     ))}
                   </ul>
