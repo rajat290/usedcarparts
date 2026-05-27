@@ -31,11 +31,11 @@ export default function Trust() {
   return (
     <section className="relative overflow-hidden bg-white py-20">
       <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-145"
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-100"
         style={{ backgroundImage: "url('/websiteImages/bg-2.jpg')" }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/600 to-white/200" />
-      <Container className="relative">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/90 via-white/40 to-white/90" />
+      <Container className="relative z-10">
         <Reveal>
           <SectionHeading
             eyebrow="Why Drivers Choose Us"
