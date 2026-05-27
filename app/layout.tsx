@@ -38,7 +38,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var storedTheme = window.localStorage.getItem("parts-central-theme");
+                  var theme = storedTheme === "dark" || storedTheme === "light"
+                    ? storedTheme
+                    : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                  document.documentElement.classList.toggle("dark", theme === "dark");
+                  document.documentElement.style.colorScheme = theme;
+                } catch (error) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
         <FloatingCallButton />

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 import Button from "@/components/ui/Button";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 type MobileMenuProps = {
   isOpen: boolean;
@@ -70,6 +71,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         <div className="mt-auto border-t border-border pt-6">
+          <div className="mb-5 flex items-center justify-between">
+            <p className="text-sm text-white/80">Theme</p>
+            <ThemeToggle />
+          </div>
           <p className="mb-3 text-sm text-white/80">Need help finding a part?</p>
           <Button href="tel:7705984665" className="w-full">
             Call (770) 598-4665

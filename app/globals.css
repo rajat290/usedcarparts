@@ -16,6 +16,14 @@
   color-scheme: light;
 }
 
+html.dark {
+  color-scheme: dark;
+  --color-secondary: #e5e7eb;
+  --color-surface: #111827;
+  --color-muted: #cbd5e1;
+  --color-border: #334155;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -28,6 +36,45 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+html.dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-surface {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark .bg-slate-200 {
+  background-color: #111827 !important;
+}
+
+html.dark .text-secondary,
+html.dark .text-slate-950,
+html.dark .text-slate-900,
+html.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-muted,
+html.dark .text-slate-700,
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .border-border,
+html.dark .border-slate-200,
+html.dark .border-slate-300 {
+  border-color: #334155 !important;
 }
 
 * {

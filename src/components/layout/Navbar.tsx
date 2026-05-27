@@ -8,6 +8,7 @@ import { useEffect } from "react";
 
 import Container from "@/components/ui/Container";
 import MobileMenu from "@/components/layout/MobileMenu";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -66,19 +67,24 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block" />
+        <div className="hidden lg:block">
+          <ThemeToggle />
+        </div>
 
-        <button
-          type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-secondary transition-colors duration-200 hover:border-primary hover:text-primary lg:hidden"
-          onClick={() => setIsOpen(true)}
-          aria-label="Open navigation menu"
-        >
-          <span className="sr-only">Open navigation menu</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/25 text-white transition-colors duration-200 hover:bg-white/10"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open navigation menu"
+          >
+            <span className="sr-only">Open navigation menu</span>
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
       </Container>
 
       <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
