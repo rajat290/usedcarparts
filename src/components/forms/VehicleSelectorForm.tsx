@@ -3,6 +3,19 @@
 import { useState } from "react";
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
+type FieldName =
+  | "year"
+  | "make"
+  | "model"
+  | "part"
+  | "engineSize"
+  | "transmission"
+  | "fullName"
+  | "email"
+  | "zipCode"
+  | "phone";
+
+type FormErrors = Partial<Record<FieldName, string>>;
 
 const years = [
   "Select Year",
@@ -444,26 +457,130 @@ const transmissions = [
   "4x4 / Manual Transmission"
 ];
 
+const placeholderValues = new Set([
+  "Select Year",
+  "Select Make",
+  "Select make first",
+  "Select Model",
+  "Choose Part",
+  "Select Part",
+  "Select Engine Size",
+  "Engine Size",
+  "Select Transmission",
+  "Choose Transmission",
+]);
+
+const fieldLabels: Record<FieldName, string> = {
+  year: "Year",
+  make: "Make",
+  model: "Model",
+  part: "Part",
+  engineSize: "Engine size",
+  transmission: "Transmission",
+  fullName: "Full name",
+  email: "Email",
+  zipCode: "Zip code",
+  phone: "Phone number",
+};
+
+function getFormValue(formData: FormData, name: FieldName) {
+  return String(formData.get(name) ?? "").trim();
+}
+
+function validateField(name: FieldName, value: string) {
+  const cleanValue = value.trim();
+
+  if (!cleanValue || placeholderValues.has(cleanValue)) {
+    return `Please enter ${fieldLabels[name].toLowerCase()}.`;
+  }
+
+  if (name === "fullName" && cleanValue.length < 2) {
+    return "Please enter at least 2 characters.";
+  }
+
+  if (name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanValue)) {
+    return "Please enter a valid email address.";
+  }
+
+  if (name === "zipCode" && !/^\d{6}(?:-\d{5})?$/.test(cleanValue)) {
+    return "Please enter a valid ZIP code.";
+  }
+
+  if (
+    name === "phone" &&
+    !/^\+?1?\s*(?:\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/.test(cleanValue)
+  ) {
+    return "Please enter a valid phone number.";
+  }
+
+  return "";
+}
+
+function validateFormData(formData: FormData) {
+  const nextErrors: FormErrors = {};
+  const requiredFields: FieldName[] = [
+    "year",
+    "make",
+    "model",
+    "part",
+    "engineSize",
+    "transmission",
+    "fullName",
+    "email",
+    "zipCode",
+    "phone",
+  ];
+
+  requiredFields.forEach((field) => {
+    const value = getFormValue(formData, field);
+    const error = validateField(field, value);
+
+    if (error) {
+      nextErrors[field] = error;
+    }
+  });
+
+  return nextErrors;
+}
+
+function cx(...classes: Array<string | false | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
+
 function SelectField({
   label,
   name,
   options,
   value,
   onChange,
+  error,
+  onValidate,
 }: {
   label: string;
-  name: string;
+  name: FieldName;
   options: string[];
   value?: string;
   onChange?: (value: string) => void;
+  error?: string;
+  onValidate?: (name: FieldName, value: string) => void;
 }) {
   return (
     <label className="block">
       <span className="sr-only">{label}</span>
       <select
-        className="h-10 w-full rounded-md border border-sky-800/40 bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
+        aria-invalid={error ? "true" : "false"}
+        aria-describedby={error ? `${name}-error` : undefined}
+        className={cx(
+          "h-10 w-full rounded-md border bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition focus:ring-2",
+          error
+            ? "border-red-500 focus:border-red-500 focus:ring-red-100"
+            : "border-sky-800/40 focus:border-cyan-200 focus:ring-cyan-100",
+        )}
         name={name}
-        onChange={(event) => onChange?.(event.target.value)}
+        onChange={(event) => {
+          onChange?.(event.target.value);
+          onValidate?.(name, event.target.value);
+        }}
         required
         value={value}
       >
@@ -471,6 +588,11 @@ function SelectField({
           <option key={`${option}-${index}`}>{option}</option>
         ))}
       </select>
+      {error ? (
+        <span id={`${name}-error`} className="mt-1 block text-xs font-semibold text-red-100">
+          {error}
+        </span>
+      ) : null}
     </label>
   );
 }
@@ -480,22 +602,39 @@ function TextField({
   name,
   placeholder,
   type = "text",
+  error,
+  onValidate,
 }: {
   label: string;
-  name: string;
+  name: FieldName;
   placeholder: string;
   type?: string;
+  error?: string;
+  onValidate?: (name: FieldName, value: string) => void;
 }) {
   return (
     <label className="block">
       <span className="sr-only">{label}</span>
       <input
-        className="h-10 w-full rounded-md border border-sky-800/40 bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:border-cyan-200 focus:ring-2 focus:ring-cyan-100"
+        aria-invalid={error ? "true" : "false"}
+        aria-describedby={error ? `${name}-error` : undefined}
+        className={cx(
+          "h-10 w-full rounded-md border bg-white px-3 text-sm text-slate-950 shadow-[0_2px_0_rgba(7,89,133,0.55)] outline-none transition placeholder:text-slate-500 focus:ring-2",
+          error
+            ? "border-red-500 focus:border-red-500 focus:ring-red-100"
+            : "border-sky-800/40 focus:border-cyan-200 focus:ring-cyan-100",
+        )}
         name={name}
+        onChange={(event) => onValidate?.(name, event.target.value)}
         placeholder={placeholder}
         required
         type={type}
       />
+      {error ? (
+        <span id={`${name}-error`} className="mt-1 block text-xs font-semibold text-red-100">
+          {error}
+        </span>
+      ) : null}
     </label>
   );
 }
@@ -505,11 +644,33 @@ export default function VehicleSelectorForm() {
   const [selectedModel, setSelectedModel] = useState("Select make first");
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [submitMessage, setSubmitMessage] = useState("");
+  const [errors, setErrors] = useState<FormErrors>({});
   const modelOptions = [
     selectedMake === "Select Make" ? "Select make first" : "Select Model",
     ...(modelsByMake[selectedMake] ?? []),
   ];
   const isSending = submitStatus === "sending";
+
+  function handleFieldValidation(name: FieldName, value: string) {
+    const error = validateField(name, value);
+
+    setErrors((currentErrors) => {
+      const nextErrors = { ...currentErrors };
+
+      if (error) {
+        nextErrors[name] = error;
+      } else {
+        delete nextErrors[name];
+      }
+
+      return nextErrors;
+    });
+
+    if (submitStatus === "error") {
+      setSubmitMessage("");
+      setSubmitStatus("idle");
+    }
+  }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -519,6 +680,16 @@ export default function VehicleSelectorForm() {
 
     try {
       const formData = new FormData(event.currentTarget);
+      const validationErrors = validateFormData(formData);
+
+      if (Object.keys(validationErrors).length > 0) {
+        setErrors(validationErrors);
+        setSubmitStatus("error");
+        setSubmitMessage("Please correct the highlighted fields.");
+        return;
+      }
+
+      setErrors({});
       const response = await fetch("/api/inquiry", {
         body: JSON.stringify(Object.fromEntries(formData)),
         headers: {
@@ -539,6 +710,7 @@ export default function VehicleSelectorForm() {
       form.reset();
       setSelectedMake("Select Make");
       setSelectedModel("Select make first");
+      setErrors({});
     } catch {
       setSubmitStatus("error");
       setSubmitMessage("Unable to send request. Please try again.");
@@ -556,16 +728,25 @@ export default function VehicleSelectorForm() {
       </h2>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        <SelectField label="Year" name="year" options={years} />
+        <SelectField
+          label="Year"
+          name="year"
+          options={years}
+          error={errors.year}
+          onValidate={handleFieldValidation}
+        />
         <SelectField
           label="Make"
           name="make"
           onChange={(make) => {
             setSelectedMake(make);
             setSelectedModel(make === "Select Make" ? "Select make first" : "Select Model");
+            handleFieldValidation("model", make === "Select Make" ? "Select make first" : "Select Model");
           }}
           options={makes}
           value={selectedMake}
+          error={errors.make}
+          onValidate={handleFieldValidation}
         />
         <SelectField
           label="Model"
@@ -573,14 +754,60 @@ export default function VehicleSelectorForm() {
           onChange={setSelectedModel}
           options={modelOptions}
           value={selectedModel}
+          error={errors.model}
+          onValidate={handleFieldValidation}
         />
-        <SelectField label="Part" name="part" options={parts} />
-        <SelectField label="Engine Size" name="engineSize" options={engineSizes} />
-        <SelectField label="Transmission" name="transmission" options={transmissions} />
-        <TextField label="Full Name" name="fullName" placeholder="John Smith" />
-        <TextField label="Email" name="email" placeholder="john@example.com" type="email" />
-        <TextField label="Zip Code" name="zipCode" placeholder="12345" />
-        <TextField label="Phone" name="phone" placeholder="(123) 456-7890" type="tel" />
+        <SelectField
+          label="Part"
+          name="part"
+          options={parts}
+          error={errors.part}
+          onValidate={handleFieldValidation}
+        />
+        <SelectField
+          label="Engine Size"
+          name="engineSize"
+          options={engineSizes}
+          error={errors.engineSize}
+          onValidate={handleFieldValidation}
+        />
+        <SelectField
+          label="Transmission"
+          name="transmission"
+          options={transmissions}
+          error={errors.transmission}
+          onValidate={handleFieldValidation}
+        />
+        <TextField
+          label="Full Name"
+          name="fullName"
+          placeholder="John Smith"
+          error={errors.fullName}
+          onValidate={handleFieldValidation}
+        />
+        <TextField
+          label="Email"
+          name="email"
+          placeholder="john@example.com"
+          type="email"
+          error={errors.email}
+          onValidate={handleFieldValidation}
+        />
+        <TextField
+          label="Zip Code"
+          name="zipCode"
+          placeholder="12345"
+          error={errors.zipCode}
+          onValidate={handleFieldValidation}
+        />
+        <TextField
+          label="Phone"
+          name="phone"
+          placeholder="(123) 456-7890"
+          type="tel"
+          error={errors.phone}
+          onValidate={handleFieldValidation}
+        />
       </div>
 
       <button
