@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import FloatingCallButton from "@/components/layout/FloatingCallButton";
 import Footer from "@/components/layout/Footer";
+import CustomCursor from "@/components/ui/CustomCursor";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -38,8 +45,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${manrope.variable} ${sora.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <CustomCursor />
         <Navbar />
         <FloatingCallButton />
         <main className="flex-1">{children}</main>

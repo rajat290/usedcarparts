@@ -1,135 +1,62 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import Button from "@/components/ui/Button";
+import MagneticButton from "@/components/ui/MagneticButton";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
 import Container from "@/components/ui/Container";
-import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-const parent: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
-  },
-};
+const heading = "Reliable OEM Parts. Real Value. Real Fast.";
 
-const child: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
-const stats = [
-  { value: "50K+", label: "Parts Sourced" },
-  { value: "60 Day", label: "Warranty" },
-  { value: "Free", label: "Nationwide Shipping" },
-];
+function SplitChars({ text }: { text: string }) {
+  return (
+    <span aria-label={text} role="text" className="inline-block">
+      {text.split("").map((ch, i) => (
+        <motion.span
+          key={`${ch}-${i}`}
+          initial={{ opacity: 0, y: 18, rotateX: -70 }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ delay: i * 0.018, duration: 0.45, ease: [0.2, 1, 0.3, 1] }}
+          className="inline-block"
+        >
+          {ch === " " ? "\u00A0" : ch}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
 
 export default function Hero() {
+  const ref = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const yImage = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const yCopy = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
   return (
-    <section className="relative min-h-[640px] overflow-hidden bg-slate-950 text-white">
-      {/* Background image */}
-      <div className="pointer-events-none absolute inset-0">
-        <Image
-          src="/websiteImages/bg-4.jpg"
-          alt="Car parts background"
-          fill
-          className="object-cover opacity-20"
-          sizes="100vw"
-          priority
-        />
-      </div>
-
-      {/* Dark overlays + gradient orbs */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/95 to-slate-900/80" />
-      <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-cyan-600/10 blur-[120px] pointer-events-none" />
-      <div className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-amber-600/8 blur-[120px] pointer-events-none" />
-
-      {/* Grid texture */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+    <section ref={ref} className="relative min-h-[720px] overflow-hidden bg-slate-950 text-white">
+      <motion.div style={{ y: yImage }} className="pointer-events-none absolute inset-0">
+        <Image src="/websiteImages/bg-4.jpg" alt="Premium used auto parts" fill className="object-cover opacity-30" sizes="100vw" priority />
+      </motion.div>
+      <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(2,6,23,0.95),rgba(2,6,23,0.85),rgba(239,68,68,0.2))]" />
 
       <Container className="relative py-16 sm:py-24 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-
-          {/* LEFT — copy */}
-          <motion.div variants={parent} initial="hidden" animate="show" className="max-w-xl">
-            <motion.div variants={child}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                Premium OEM Quality
-              </span>
-            </motion.div>
-
-            <motion.h1
-              variants={child}
-              className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
-            >
-              Used OEM Car Parts{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
-                You Can Trust
-              </span>
-            </motion.h1>
-
-            <motion.p
-              variants={child}
-              className="mt-6 text-base leading-8 text-slate-300 sm:text-lg"
-            >
-              Affordable, tested OEM replacements for every make and model — shipped free nationwide with a 60-day warranty.
-            </motion.p>
-
-            <motion.div variants={child} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button
-                href="#vehicle-selector"
-                size="lg"
-                className="rounded-xl px-8 tracking-wide uppercase text-sm"
-              >
-                Find a Part Now
-              </Button>
-              <Button
-                href="tel:7705984665"
-                variant="outline"
-                size="lg"
-                className="rounded-xl px-8 tracking-wide uppercase text-sm"
-              >
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                (770) 598-4665
-              </Button>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div variants={child} className="mt-10 flex flex-wrap gap-6 border-t border-white/8 pt-8">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-extrabold text-white">{stat.value}</p>
-                  <p className="mt-0.5 text-xs font-medium text-slate-400 uppercase tracking-wider">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <motion.div style={{ y: yCopy }} className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-red-300">Premium Used OEM Parts</p>
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              <SplitChars text={heading} />
+            </h1>
+            <p className="mt-6 text-base leading-8 text-slate-200 sm:text-lg">
+              Quality-tested, perfectly matched used parts for every major make and model, with fast shipping and a dedicated support team.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <MagneticButton href="#vehicle-selector" label="Find A Part Now" />
+              <MagneticButton href="tel:7705984665" label="Call (770) 598-4665" variant="outline" />
+            </div>
           </motion.div>
 
-          {/* RIGHT — form */}
-          <motion.div
-            id="vehicle-selector"
-            variants={child}
-            initial="hidden"
-            animate="show"
-            className="flex justify-center lg:justify-end"
-          >
+          <motion.div id="vehicle-selector" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.2, 1, 0.3, 1], delay: 0.25 }}>
             <VehicleSelectorForm />
           </motion.div>
         </div>

@@ -26,25 +26,25 @@ export default function PolicyPage({
 }: PolicyPageProps) {
   return (
     <>
-      <section className="relative overflow-hidden bg-secondary text-white">
-        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.98),rgba(31,41,55,0.9),rgba(215,50,45,0.46))]" />
-        <div className="absolute bottom-0 right-0 h-44 w-44 border-l border-t border-white/10 sm:h-72 sm:w-72" />
+      <section className="relative overflow-hidden bg-white text-slate-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.12),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(239,68,68,0.12),transparent_40%)]" />
+        <div className="absolute bottom-0 right-0 h-44 w-44 border-l border-t border-slate-200 sm:h-72 sm:w-72" />
         <Container className="relative py-16 sm:py-20 lg:py-24">
           <Reveal>
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-white text-primary">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-slate-100 text-red-600">
               <FileText size={24} />
             </div>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-amber-300">
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-red-600">
               {eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
               {title}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
               {description}
             </p>
             {lastUpdated ? (
-              <p className="mt-5 text-sm font-semibold text-slate-300">Last updated: {lastUpdated}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-500">Last updated: {lastUpdated}</p>
             ) : null}
           </Reveal>
         </Container>
@@ -117,3 +117,4 @@ export default function PolicyPage({
     </>
   );
 }
+
