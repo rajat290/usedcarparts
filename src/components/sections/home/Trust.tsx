@@ -29,8 +29,13 @@ const trustItems = [
 
 export default function Trust() {
   return (
-    <section className="bg-white py-20">
-      <Container>
+    <section className="relative overflow-hidden bg-white py-20">
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-145"
+        style={{ backgroundImage: "url('/websiteImages/bg-2.jpg')" }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/600 to-white/200" />
+      <Container className="relative">
         <Reveal>
           <SectionHeading
             eyebrow="Why Drivers Choose Us"

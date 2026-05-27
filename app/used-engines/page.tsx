@@ -13,6 +13,11 @@ export default function UsedEnginesPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-secondary text-white">
+        <img
+          src="/websiteImages/bg-3.jpg"
+          alt="Background used engines"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
+        />
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.95),rgba(31,41,55,0.85),rgba(249,115,22,0.2))]" />
         <Container className="relative py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -43,8 +48,14 @@ export default function UsedEnginesPage() {
         </Container>
       </section>
 
-      <section className="bg-slate-950 text-slate-100">
-        <Container className="py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-slate-950 text-slate-100">
+        <img
+          src="/websiteImages/bg-5.jpg"
+          alt="Background pattern"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-slate-950/85" />
+        <Container className="relative py-16 sm:py-20">
           <div className="space-y-12">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold">Reliable Used Engines for Sale</h2>
