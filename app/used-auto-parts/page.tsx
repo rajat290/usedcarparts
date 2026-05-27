@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
@@ -13,11 +14,15 @@ export default function UsedAutoPartsPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-secondary text-white">
-        <img
-          src="/websiteImages/bg-1.jpg"
-          alt="Background used auto parts"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <Image
+            src="/websiteImages/bg-1.jpg"
+            alt="Background used auto parts"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.95),rgba(31,41,55,0.85),rgba(99,102,241,0.2))]" />
         <Container className="relative py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -49,18 +54,22 @@ export default function UsedAutoPartsPage() {
       </section>
 
       <section className="relative overflow-hidden bg-slate-950 text-slate-100">
-        <img
-          src="/websiteImages/bg-5.jpg"
-          alt="Background pattern"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-15">
+          <Image
+            src="/websiteImages/bg-5.jpg"
+            alt="Background pattern"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-slate-950/85" />
         <Container className="relative py-16 sm:py-20">
           <div className="space-y-12">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold">Used OEM Auto Parts You Can Trust</h2>
               <p className="max-w-3xl text-lg leading-8 text-slate-300">
-                When your car needs a replacement, you shouldn't have to guess about quality or overpay. At PartsCentral of Georgia, we make buying used OEM auto parts simple, safe, and affordable. Whether you are a car enthusiast or just need your vehicle running again, you will know exactly where to turn.
+                When your car needs a replacement, you should not have to guess about quality or overpay. At PartsCentral of Georgia, we make buying used OEM auto parts simple, safe, and affordable. Whether you are a car enthusiast or just need your vehicle running again, you will know exactly where to turn.
               </p>
             </div>
 
@@ -68,7 +77,7 @@ export default function UsedAutoPartsPage() {
               <div className="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-900/80 p-8 shadow-lg shadow-black/10">
                 <h3 className="text-2xl font-semibold">Your Go-To Source for Reliable Used Auto Parts</h3>
                 <p className="text-slate-300 leading-7">
-                  From seasoned mechanics and weekend restorers to busy parents and first-time car owners, thousands trust PartsCentral of Georgia for fast access to OEM used auto parts and foreign used auto parts. Even if you aren't sure what a part looks like or how it works, we guide you step by step.
+                  From seasoned mechanics and weekend restorers to busy parents and first-time car owners, thousands trust PartsCentral of Georgia for fast access to OEM used auto parts and foreign used auto parts. Even if you are not sure what a part looks like or how it works, we guide you step by step.
                 </p>
               </div>
 

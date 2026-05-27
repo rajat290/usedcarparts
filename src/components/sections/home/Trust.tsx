@@ -2,7 +2,6 @@ import { ShieldCheck, Truck, Wrench, Headset } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import SectionHeading from "@/components/ui/SectionHeading";
 
 const trustItems = [
   {

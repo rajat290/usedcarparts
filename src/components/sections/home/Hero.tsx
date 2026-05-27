@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
 import Container from "@/components/ui/Container";
@@ -26,11 +27,15 @@ const child: Variants = {
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-secondary text-white">
-      <img
-        src="/websiteImages/bg-4.jpg"
-        alt="Car parts background"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-400"
-      />
+      <div className="pointer-events-none absolute inset-0 opacity-40">
+        <Image
+          src="/websiteImages/bg-4.jpg"
+          alt="Car parts background"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
       <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.98),rgba(31,41,55,0.88),rgba(215,50,45,0.48))]" />
       <div className="absolute bottom-0 right-0 h-48 w-48 border-l border-t border-white/10 sm:h-72 sm:w-72" />
       <Container className="relative py-14 sm:py-20 lg:py-24">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
@@ -13,11 +14,15 @@ export default function UsedEnginesPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-secondary text-white">
-        <img
-          src="/websiteImages/bg-3.jpg"
-          alt="Background used engines"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <Image
+            src="/websiteImages/bg-3.jpg"
+            alt="Background used engines"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.95),rgba(31,41,55,0.85),rgba(249,115,22,0.2))]" />
         <Container className="relative py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -49,11 +54,15 @@ export default function UsedEnginesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-slate-950 text-slate-100">
-        <img
-          src="/websiteImages/bg-5.jpg"
-          alt="Background pattern"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-15">
+          <Image
+            src="/websiteImages/bg-5.jpg"
+            alt="Background pattern"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-slate-950/85" />
         <Container className="relative py-16 sm:py-20">
           <div className="space-y-12">
@@ -66,7 +75,7 @@ export default function UsedEnginesPage() {
 
             <div className="grid gap-8 lg:grid-cols-2">
               <div className="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-900/80 p-8 shadow-lg shadow-black/10">
-                <h3 className="text-2xl font-semibold">Revive Your Vehicle's Performance</h3>
+                <h3 className="text-2xl font-semibold">Revive Your Vehicle Performance</h3>
                 <p className="text-slate-300 leading-7">
                   Bring new life to your engine with a dependable, well-matched unit. Our inventory includes affordable used engines and remanufactured car engines, all sourced and tested to restore performance quickly.
                 </p>
@@ -131,7 +140,7 @@ export default function UsedEnginesPage() {
             <div className="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-900/80 p-8 shadow-lg shadow-black/10">
               <h3 className="text-2xl font-semibold">Get Your Engine and Get Going</h3>
               <p className="text-slate-300 leading-7">
-                Ready to restore your vehicle's power? Submit your vehicle details using our quick form. Our team will find the best used engines, provide a fast quote, and deliver it straight to your door.
+                Ready to restore your vehicle power? Submit your vehicle details using our quick form. Our team will find the best used engines, provide a fast quote, and deliver it straight to your door.
               </p>
             </div>
           </div>

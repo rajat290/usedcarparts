@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
@@ -13,11 +14,15 @@ export default function UsedTransmissionsPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-secondary text-white">
-        <img
-          src="/websiteImages/bg-2.jpg"
-          alt="Background used transmissions"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <Image
+            src="/websiteImages/bg-2.jpg"
+            alt="Background used transmissions"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.95),rgba(31,41,55,0.85),rgba(16,185,129,0.25))]" />
         <Container className="relative py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -49,18 +54,22 @@ export default function UsedTransmissionsPage() {
       </section>
 
       <section className="relative overflow-hidden bg-slate-950 text-slate-100">
-        <img
-          src="/websiteImages/bg-5.jpg"
-          alt="Background pattern"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-15">
+          <Image
+            src="/websiteImages/bg-5.jpg"
+            alt="Background pattern"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-slate-950/85" />
         <Container className="relative py-16 sm:py-20">
           <div className="space-y-12">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold">Trusted Used Transmissions for Sale</h2>
               <p className="max-w-3xl text-lg leading-8 text-slate-300">
-                Find reliable, high-performance used transmissions for sale that perfectly match your vehicle's needs. Each unit is thoroughly tested to ensure quality while being priced to save you money.
+                Find reliable, high-performance used transmissions for sale that perfectly match your vehicle needs. Each unit is thoroughly tested to ensure quality while being priced to save you money.
               </p>
             </div>
 
@@ -84,7 +93,7 @@ export default function UsedTransmissionsPage() {
               <div className="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-900/80 p-8 shadow-lg shadow-black/10">
                 <h3 className="text-2xl font-semibold">Save on OEM Used Transmissions</h3>
                 <p className="text-slate-300 leading-7">
-                  Choosing a used transmission can save 50-70% compared to new ones without sacrificing fit or performance. It's the smart choice for drivers seeking both quality and value.
+                  Choosing a used transmission can save 50-70% compared to new ones without sacrificing fit or performance. It is the smart choice for drivers seeking both quality and value.
                 </p>
               </div>
 
@@ -121,7 +130,7 @@ export default function UsedTransmissionsPage() {
             <div className="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-900/80 p-8 shadow-lg shadow-black/10">
               <h3 className="text-2xl font-semibold">How It Works – Fast, Clear, Efficient</h3>
               <ol className="space-y-3 pl-6 text-slate-300 marker:text-amber-300">
-                <li>1. Enter your vehicle's make, model, year, and transmission type.</li>
+                <li>1. Enter your vehicle make, model, year, and transmission type.</li>
                 <li>2. We locate the exact match from our inventory.</li>
                 <li>3. You receive a quick, personalized price and availability estimate.</li>
                 <li>4. Once confirmed, we ship the transmission promptly and securely.</li>
@@ -131,7 +140,7 @@ export default function UsedTransmissionsPage() {
             <div className="space-y-4 rounded-3xl border border-slate-800/70 bg-slate-900/80 p-8 shadow-lg shadow-black/10">
               <h3 className="text-2xl font-semibold">Get Back on the Road with Confidence</h3>
               <p className="text-slate-300 leading-7">
-                Bring your vehicle back to peak performance with a quality used transmission. Fill out the quick form with your details, and we'll match you to the ideal unit and send your quote fast.
+                Bring your vehicle back to peak performance with a quality used transmission. Fill out the quick form with your details, and we will match you to the ideal unit and send your quote fast.
               </p>
             </div>
           </div>

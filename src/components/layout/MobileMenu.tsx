@@ -39,15 +39,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <div className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm lg:hidden" onClick={onClose}>
       <div
-        className="ml-auto flex h-full w-[82%] max-w-sm flex-col bg-white p-6 shadow-2xl"
+        className="ml-auto flex h-full w-[82%] max-w-sm flex-col bg-primary/95 p-6 shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <p className="text-lg font-semibold text-secondary">Menu</p>
+          <p className="text-lg font-semibold text-white">Menu</p>
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-secondary transition-colors duration-200 hover:bg-slate-100"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-200 hover:bg-white/10"
             aria-label="Close navigation menu"
           >
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -62,7 +62,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className="rounded-md px-3 py-3 text-base font-medium text-secondary hover:bg-slate-100"
+              className="rounded-md px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10 hover:text-white"
             >
               {item.label}
             </Link>
@@ -70,7 +70,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         <div className="mt-auto border-t border-border pt-6">
-          <p className="mb-3 text-sm text-muted">Need help finding a part?</p>
+          <p className="mb-3 text-sm text-white/80">Need help finding a part?</p>
           <Button href="tel:7705984665" className="w-full">
             Call (770) 598-4665
           </Button>
