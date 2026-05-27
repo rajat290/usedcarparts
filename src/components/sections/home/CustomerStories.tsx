@@ -90,7 +90,7 @@ export default function CustomerStories() {
           />
         </Reveal>
 
-        <div className="mt-10 rounded-[2rem] border border-slate-200 bg-slate-50 p-4 shadow-sm sm:p-6">
+        <div className="mt-10 rounded-4xl border border-slate-200 bg-slate-50 p-4 shadow-sm sm:p-6">
           <div className="mb-6 flex items-center justify-between gap-3">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
               Testimonials
@@ -124,13 +124,13 @@ export default function CustomerStories() {
             {testimonials.map((testimonial, index) => (
               <article
                 key={`${testimonial.name}-${index}`}
-                className="min-w-[320px] max-w-[420px] snap-center rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.18)] transition-transform duration-300 hover:-translate-y-1"
+                className="min-w-[320px] max-w-105 snap-center rounded-4xl border border-slate-200 bg-white p-8 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.18)] transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <MessageCircle size={24} />
                 </div>
                 <blockquote className="mt-6 text-base leading-8 text-slate-700">“{testimonial.quote}”</blockquote>
-                <div className="mt-8 rounded-[1.5rem] bg-primary px-5 py-4 text-white">
+                <div className="mt-8 rounded-3xl bg-primary px-5 py-4 text-white">
                   <p className="text-base font-semibold">{testimonial.name}</p>
                   <p className="text-sm text-slate-200">{testimonial.location}</p>
                 </div>

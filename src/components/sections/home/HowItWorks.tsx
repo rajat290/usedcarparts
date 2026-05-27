@@ -27,7 +27,7 @@ export default function HowItWorks() {
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-100"
         style={{ backgroundImage: "url('/websiteImages/bg-4.jpg')" }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/30 via-white/5 to-white/50" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-white/30 via-white/5 to-white/50" />
       <Container className="relative z-10">
         <Reveal>
           <div className="max-w-3xl text-center text-white">

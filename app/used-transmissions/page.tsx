@@ -37,10 +37,10 @@ export default function UsedTransmissionsPage() {
                 Affordable OEM-fit replacements, tested for performance and backed by warranty.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button href="#vehicle-selector" size="lg" className="rounded-full px-8 py-4 uppercase tracking-[0.1em]">
+                <Button href="#vehicle-selector" size="lg" className="rounded-full px-8 py-4 uppercase tracking-widest">
                   Find A Part Now
                 </Button>
-                <Button href="tel:7705984665" variant="outline" size="lg" className="rounded-full px-8 py-4 uppercase tracking-[0.1em]">
+                <Button href="tel:7705984665" variant="outline" size="lg" className="rounded-full px-8 py-4 uppercase tracking-widest">
                   Call (770) 598-4665
                 </Button>
               </div>

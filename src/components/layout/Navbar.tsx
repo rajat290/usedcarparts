@@ -57,7 +57,7 @@ export default function Navbar() {
               href={item.href}
               className={[
                 "relative text-sm font-medium text-white transition-colors duration-200 hover:text-amber-300",
-                "after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-amber-300 after:transition-transform after:duration-200 hover:after:scale-x-100",
+                "after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-amber-300 after:transition-transform after:duration-200 hover:after:scale-x-100",
                 pathname === item.href ? "text-amber-300 after:scale-x-100" : "",
               ].join(" ")}
             >

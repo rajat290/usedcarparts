@@ -61,7 +61,7 @@ export default function QualityParts() {
         <div className="mt-10 grid gap-8 lg:grid-cols-2 auto-rows-fr">
           {parts.map((part, index) => (
             <Reveal key={part.title} delay={index * 0.03}>
-              <article className="group h-full overflow-hidden rounded-[2rem] border border-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:bg-white hover:shadow-xl">
+              <article className="group h-full overflow-hidden rounded-4xl border border-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:bg-white hover:shadow-xl">
                 <div className="grid h-full gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
@@ -80,7 +80,7 @@ export default function QualityParts() {
                     </Link>
                   </div>
 
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] bg-white shadow-sm">
+                  <div className="relative aspect-4/3 w-full overflow-hidden rounded-3xl bg-white shadow-sm">
                     <Image src={part.image} alt={part.title} fill className="object-contain" />
                   </div>
                 </div>
