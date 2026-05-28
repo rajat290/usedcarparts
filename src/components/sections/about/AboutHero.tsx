@@ -11,10 +11,10 @@ const highlights = [
 ];
 
 const primaryCtaClass =
-  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
+  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
 
 const secondaryCtaClass =
-  "h-14 items-center justify-center rounded-xl border border-white/25 bg-white/10 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-transform duration-150";
+  "h-14 items-center justify-center rounded-xl border border-primary bg-primary px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-lg shadow-primary/20 transition-transform duration-150 hover:border-primary-dark hover:bg-primary-dark";
 
 export default function AboutHero() {
   return (
@@ -24,9 +24,11 @@ export default function AboutHero() {
       description="Parts Central of Georgia helps drivers, repair shops, and vehicle owners find dependable used engines, transmissions, and auto parts without the guesswork."
       actions={
         <>
-          <Button href="/contact" size="lg" className={secondaryCtaClass}>Request A Quote</Button>
+          <Button href="/contact" variant="secondary" size="lg" className={secondaryCtaClass}>
+            <span className="flex h-full items-center justify-center leading-none">Request A Quote</span>
+          </Button>
           <Button href="tel:7705984665" size="lg" className={primaryCtaClass}>
-            Call (770) 598-4665
+            <span className="flex h-full items-center justify-center leading-none">Call (770) 598-4665</span>
           </Button>
         </>
       }

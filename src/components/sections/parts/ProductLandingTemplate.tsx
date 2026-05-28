@@ -21,6 +21,7 @@ type ProductLandingTemplateProps = {
   sectionLead: string;
   features: FeatureBlock[];
   partLabel: string;
+  heroContentClassName?: string;
   showBrandImages?: boolean;
 };
 
@@ -35,6 +36,7 @@ export default function ProductLandingTemplate({
   sectionLead,
   features,
   partLabel,
+  heroContentClassName = "",
   showBrandImages = false,
 }: ProductLandingTemplateProps) {
   return (
@@ -48,7 +50,7 @@ export default function ProductLandingTemplate({
 
         <Container className="relative py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div>
+            <div className={heroContentClassName}>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">{eyebrow}</p>
               <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">{title}</h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">{subtitle}</p>

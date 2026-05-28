@@ -3,10 +3,10 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 
 const primaryCtaClass =
-  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
+  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
 
 const secondaryCtaClass =
-  "h-14 items-center justify-center rounded-xl border border-white/25 bg-white/10 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-transform duration-150";
+  "h-14 items-center justify-center rounded-xl border border-primary bg-primary px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-lg shadow-primary/20 transition-transform duration-150 hover:border-primary-dark hover:bg-primary-dark";
 
 export default function AboutCTA() {
   return (
@@ -26,15 +26,15 @@ export default function AboutCTA() {
               pricing, warranty information, and shipping expectations.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact" size="lg" className={secondaryCtaClass}>
-                Contact Us
+              <Button href="/contact" variant="secondary" size="lg" className={secondaryCtaClass}>
+                <span className="flex h-full items-center justify-center leading-none">Contact Us</span>
               </Button>
               <Button
                 href="tel:7705984665"
                 size="lg"
                 className={primaryCtaClass}
               >
-                Call (770) 598-4665
+                <span className="flex h-full items-center justify-center leading-none">Call (770) 598-4665</span>
               </Button>
             </div>
           </div>

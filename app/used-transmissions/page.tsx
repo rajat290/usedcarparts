@@ -35,6 +35,7 @@ export default function UsedTransmissionsPage() {
       heroImage="/websiteImages/bg-2.jpg"
       heroImageAlt="Used transmission hero background"
       heroTintClass="bg-[linear-gradient(120deg,rgba(2,6,23,0.95),rgba(15,23,42,0.88),rgba(16,185,129,0.2))]"
+      heroContentClassName="-translate-y-4 sm:-translate-y-5 lg:-translate-y-6"
       sectionTitle="Transmission Replacements Without Guesswork"
       sectionLead="We combine fitment guidance, tested inventory, and transparent pricing so you can get back on the road faster."
       features={features}

@@ -16,7 +16,7 @@ const textareaClass =
   "min-h-36 w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-secondary outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-red-100";
 
 const sendButtonClass =
-  "mt-5 inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-xl border border-white/25 bg-white/10 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-transform duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 sm:w-auto";
+  "mt-5 inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-primary px-9 text-base font-semibold uppercase tracking-[0.08em] text-white shadow-lg shadow-primary/20 transition duration-150 hover:-translate-y-0.5 hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:w-auto";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -89,7 +89,7 @@ export default function ContactForm() {
           <Reveal delay={0.05}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-lg border border-border bg-white p-5 shadow-lg shadow-slate-900/5 sm:p-7"
+              className="rounded-lg border border-border bg-white p-5 shadow-lg shadow-slate-900/10 dark:shadow-black/30 sm:p-7"
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
