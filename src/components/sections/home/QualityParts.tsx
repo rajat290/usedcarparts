@@ -11,7 +11,7 @@ const parts = [
     title: "Engine Assembly",
     description:
       "Complete OEM engine assemblies professionally inspected, tested, and ready for long-term performance.",
-    image: "/parts/Engine_Assembly (2).jpg",
+    image: "/parts/tyler-bZY2K525nao-unsplash.jpg",
     href: "/used-engines",
     specs: ["OEM Certified", "Warranty Included", "Performance Tested"],
     badge: "Featured",
@@ -29,7 +29,7 @@ const parts = [
     title: "ABS Module",
     description:
       "OEM ABS modules verified for compatibility and dependable braking performance.",
-    image: "/parts/ABS Module.png",
+    image: "/parts/part3.jpg",
     href: "/used-auto-parts",
     specs: ["Compatibility Checked", "OEM Verified"],
     badge: "OEM",
@@ -47,7 +47,7 @@ const parts = [
     title: "Spindle Knuckle - Front",
     description:
       "Stable suspension and steering geometry components engineered for perfect alignment.",
-    image: "/parts/spindle.png",
+    image: "/parts/part5.jpg",
     href: "/used-auto-parts",
     specs: ["Stable Fitment", "OEM Geometry"],
     badge: "Precision",
