@@ -42,7 +42,7 @@ function SelectField({ label, name, options, value, onChange, theme }: { label: 
       <div className="relative">
         <select
           className={cx(
-            "h-11 w-full appearance-none rounded-xl border px-3.5 pr-9 text-sm outline-none transition-all duration-200",
+            "h-10 w-full appearance-none rounded-lg border px-3 pr-8 text-sm outline-none transition-all duration-200",
             isDark
               ? "border-white/10 bg-slate-800/70 text-white focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/20"
               : "border-slate-300 bg-white text-slate-900 focus:border-red-500 focus:ring-2 focus:ring-red-100",
@@ -66,7 +66,7 @@ function TextField({ label, name, placeholder, type = "text", theme }: { label: 
       <span className={cx("mb-1.5 block text-xs font-semibold uppercase tracking-wider", isDark ? "text-slate-300" : "text-slate-600")}>{label}</span>
       <input
         className={cx(
-          "h-11 w-full rounded-xl border px-3.5 text-sm outline-none transition-all duration-200",
+          "h-10 w-full rounded-lg border px-3 text-sm outline-none transition-all duration-200",
           isDark
             ? "border-white/10 bg-slate-800/70 text-white placeholder:text-slate-500 focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/20"
             : "border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100",
@@ -134,13 +134,13 @@ function VehicleFormInner({ theme }: { theme: Theme }) {
   }
 
   return (
-    <form className={cx("w-full max-w-xl rounded-2xl border p-5 shadow-2xl sm:p-6", isDark ? "border-white/10 bg-slate-900/90 text-white" : "border-slate-200 bg-white text-slate-900")} onSubmit={handleSubmit} id="vehicle-selector-form">
-      <div className="mb-5 text-center">
-        <h2 className={cx("text-2xl font-extrabold sm:text-3xl", isDark ? "text-white" : "text-slate-900")}>Find Your Part</h2>
+    <form className={cx("w-full max-w-lg rounded-2xl border p-4 shadow-2xl sm:p-5", isDark ? "border-white/10 bg-slate-900/90 text-white" : "border-slate-200 bg-white text-slate-900")} onSubmit={handleSubmit} id="vehicle-selector-form">
+      <div className="mb-4 text-center">
+        <h2 className={cx("text-xl font-extrabold sm:text-2xl", isDark ? "text-white" : "text-slate-900")}>Find Your Part</h2>
         <p className={cx("mt-1 text-sm", isDark ? "text-slate-400" : "text-slate-600")}>Fill in your vehicle details below</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-2">
         <SelectField label="Year" name="year" options={years} theme={theme} />
         <SelectField label="Make" name="make" onChange={(make) => { setSelectedMake(make); setSelectedModel(make === "Select Make" ? "Select make first" : "Select Model"); }} options={makes} value={selectedMake} theme={theme} />
         <SelectField label="Model" name="model" onChange={setSelectedModel} options={modelOptions} value={selectedModel} theme={theme} />
@@ -153,7 +153,7 @@ function VehicleFormInner({ theme }: { theme: Theme }) {
         <TextField label="Phone" name="phone" placeholder="(123) 456-7890" type="tel" theme={theme} />
       </div>
 
-      <button className="mt-5 flex h-12 w-full items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-red-700 px-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5" disabled={isSending} type="submit">
+      <button className="mt-4 flex h-11 w-full items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-red-700 px-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5" disabled={isSending} type="submit">
         {isSending ? "Sending..." : "Find My Part Now"}
       </button>
       {submitMessage ? <div className={cx("mt-4 rounded-xl px-4 py-3 text-center text-sm font-semibold", submitStatus === "success" ? "bg-emerald-500/15 border border-emerald-500/20 text-emerald-500" : "bg-red-500/15 border border-red-500/20 text-red-500")}>{submitMessage}</div> : null}

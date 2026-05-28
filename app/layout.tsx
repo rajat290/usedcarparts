@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
@@ -47,7 +48,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${sora.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function () {

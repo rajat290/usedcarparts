@@ -39,6 +39,7 @@ export default function UsedAutoPartsPage() {
       sectionLead="From daily-driver repairs to hard-to-find replacements, we help you source dependable OEM parts without the dealer markup."
       features={features}
       partLabel="used auto parts"
+      showBrandImages
     />
   );
 }

@@ -2,6 +2,12 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 
+const primaryCtaClass =
+  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
+
+const secondaryCtaClass =
+  "h-14 items-center justify-center rounded-xl border border-white/25 bg-white/10 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-transform duration-150";
+
 export default function AboutCTA() {
   return (
     <section className="relative overflow-hidden bg-white py-18 text-slate-900 sm:py-20">
@@ -20,14 +26,13 @@ export default function AboutCTA() {
               pricing, warranty information, and shipping expectations.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact" size="lg">
+              <Button href="/contact" size="lg" className={secondaryCtaClass}>
                 Contact Us
               </Button>
               <Button
                 href="tel:7705984665"
-                variant="outline"
                 size="lg"
-                className="border-white/40 bg-white/5 text-slate-900 hover:bg-white/10"
+                className={primaryCtaClass}
               >
                 Call (770) 598-4665
               </Button>
