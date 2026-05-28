@@ -9,190 +9,264 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const parts = [
   {
     title: "Engine Assembly",
-    description: "Quality used engine and transmission parts sold as complete assemblies.",
+    description:
+      "Complete OEM engine assemblies professionally inspected, tested, and ready for long-term performance.",
     image: "/parts/Engine_Assembly (2).jpg",
     href: "/used-engines",
+    specs: ["OEM Certified", "Warranty Included", "Performance Tested"],
+    badge: "Featured",
   },
   {
     title: "Transmission",
-    description: "Reliable used transmissions matched to your vehicle for smooth performance.",
+    description:
+      "Precision matched used transmissions engineered for seamless shifting and reliability.",
     image: "/parts/Transmission.png",
     href: "/used-transmissions",
+    specs: ["Smooth Shifting", "Low Mileage", "Road Tested"],
+    badge: "Top Rated",
   },
   {
     title: "ABS Module",
-    description: "OEM ABS modules inspected for compatibility and dependable braking control.",
+    description:
+      "OEM ABS modules verified for compatibility and dependable braking performance.",
     image: "/parts/ABS Module.png",
     href: "/used-auto-parts",
+    specs: ["Compatibility Checked", "OEM Verified"],
+    badge: "OEM",
   },
   {
     title: "ABS System",
-    description: "Quality used braking components ready for dependable daily driving.",
+    description:
+      "Reliable braking systems inspected for safety, fitment, and everyday durability.",
     image: "/parts/ABS System.png",
     href: "/used-auto-parts",
+    specs: ["Dependable Braking", "Fast Shipping"],
+    badge: "Safety",
   },
   {
     title: "Spindle Knuckle - Front",
-    description: "Supports stable steering geometry and suspension alignment integrity.",
+    description:
+      "Stable suspension and steering geometry components engineered for perfect alignment.",
     image: "/parts/spindle.png",
     href: "/used-auto-parts",
+    specs: ["Stable Fitment", "OEM Geometry"],
+    badge: "Precision",
   },
   {
     title: "Head Light Assembly",
-    description: "Improves nighttime visibility with tested OEM fit and durability.",
+    description:
+      "Premium OEM lighting assemblies designed for durability and maximum visibility.",
     image: "/parts/head_light_assembly.png",
     href: "/used-auto-parts",
+    specs: ["Road Ready", "Crystal Visibility"],
+    badge: "Lighting",
   },
 ];
 
 const cardStyles = [
   {
-    grid: "md:col-span-2 md:row-span-2",
-    image: "h-64 sm:h-72 lg:h-86",
-    title: "text-2xl sm:text-3xl",
-    label: "Powertrain Core",
-    stat: "Complete OEM assemblies",
-    glow: "bg-[radial-gradient(circle,rgba(0,209,255,0.28),rgba(59,130,246,0.08),transparent_62%)]",
-  },
-  {
-    grid: "md:col-span-1 md:row-span-2",
-    image: "h-56 lg:h-72",
-    title: "text-2xl",
-    label: "Precision Match",
-    stat: "Smooth shifting",
-    glow: "bg-[radial-gradient(circle,rgba(56,189,248,0.24),rgba(6,182,212,0.08),transparent_62%)]",
-  },
-  {
-    grid: "md:col-span-1",
-    image: "h-44",
-    title: "text-xl",
-    label: "Control Module",
-    stat: "Compatibility checked",
-    glow: "bg-[radial-gradient(circle,rgba(129,140,248,0.24),rgba(6,182,212,0.08),transparent_62%)]",
-  },
-  {
-    grid: "md:col-span-1",
-    image: "h-44",
-    title: "text-xl",
-    label: "Safety Systems",
-    stat: "Dependable braking",
-    glow: "bg-[radial-gradient(circle,rgba(125,249,255,0.22),rgba(59,130,246,0.08),transparent_62%)]",
-  },
-  {
-    grid: "md:col-span-1",
-    image: "h-44",
-    title: "text-xl",
-    label: "Suspension Geometry",
-    stat: "Stable fitment",
-    glow: "bg-[radial-gradient(circle,rgba(203,213,225,0.18),rgba(6,182,212,0.08),transparent_62%)]",
-  },
-  {
+    // FEATURED
     grid: "md:col-span-2",
-    image: "h-52 sm:h-60",
-    title: "text-2xl",
-    label: "Lighting Upgrade",
-    stat: "Road-ready visibility",
-    glow: "bg-[radial-gradient(circle,rgba(0,209,255,0.26),rgba(251,191,36,0.1),transparent_62%)]",
+    image: "h-[260px] sm:h-[300px] lg:h-[340px]",
+    title: "text-3xl sm:text-4xl",
+    glow: "from-cyan-400/30 via-sky-400/10 to-transparent",
+  },
+  {
+    // TRANSMISSION
+    grid: "",
+    image: "h-[220px] lg:h-[260px]",
+    title: "text-2xl sm:text-3xl",
+    glow: "from-sky-400/30 via-cyan-400/10 to-transparent",
+  },
+  {
+    // ABS MODULE
+    grid: "",
+    image: "h-[170px]",
+    title: "text-xl",
+    glow: "from-indigo-400/20 via-cyan-400/10 to-transparent",
+  },
+  {
+    // ABS SYSTEM
+    grid: "",
+    image: "h-[170px]",
+    title: "text-xl",
+    glow: "from-cyan-300/20 via-sky-400/10 to-transparent",
+  },
+  {
+    // SPINDLE
+    grid: "",
+    image: "h-[170px]",
+    title: "text-xl",
+    glow: "from-slate-300/10 via-cyan-400/10 to-transparent",
+  },
+  {
+    // HEADLIGHT WIDE CARD
+    grid: "md:col-span-2",
+    image: "h-[190px] sm:h-[220px]",
+    title: "text-2xl sm:text-3xl",
+    glow: "from-cyan-400/30 via-blue-400/10 to-transparent",
   },
 ];
 
 export default function QualityParts() {
   return (
-    <section className="relative overflow-hidden bg-[#050816] py-24 text-white sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_10%,rgba(0,209,255,0.22),transparent_34%),radial-gradient(circle_at_84%_18%,rgba(125,249,255,0.12),transparent_30%),linear-gradient(135deg,#050816_0%,#0B1220_48%,#020617_100%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(125,249,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(125,249,255,0.12)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.05)_36%,transparent_58%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+    <section className="relative overflow-hidden bg-[#030712] py-24 text-white sm:py-32">
+      
+      {/* PREMIUM BACKGROUND */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-cyan-500/15 blur-[140px]" />
+        <div className="absolute right-[-10%] top-[20%] h-[400px] w-[400px] rounded-full bg-blue-500/10 blur-[140px]" />
+        <div className="absolute bottom-[-20%] left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[180px]" />
 
-      <Container className="relative">
+        {/* GRID TEXTURE */}
+        <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:80px_80px]" />
+
+        {/* LIGHT OVERLAY */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,209,255,0.08),transparent_35%)]" />
+      </div>
+
+      <Container className="relative z-10">
+        
+        {/* HEADER */}
         <Reveal>
           <div className="mx-auto max-w-5xl text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-lg shadow-cyan-500/10 backdrop-blur-xl">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(125,249,255,0.9)]" />
-              Premium Used OEM Parts
+            
+            {/* TOP BADGE */}
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-300/20 bg-white/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.3em] text-red-600 backdrop-blur-xl">
+              <span className="h-2 w-2 rounded-full bg-green-600 shadow-[0_0_25px_rgba(125,249,255,1)]" />
+              Premium OEM Components
             </div>
+
             <SectionHeading
               title={
                 <>
-                  Quality Used Auto Parts,{" "}
-                  <span className="bg-gradient-to-r from-cyan-200 via-white to-cyan-300 bg-clip-text text-transparent">
-                    engineered for confidence.
+                  Reliable Used Auto Parts,
+                  <br />
+                  <span className="bg-gradient-to-r from-cyan-200 via-green-400 to-red-700 bg-clip-text text-transparent">
+                    engineered for performance.
                   </span>
                 </>
               }
-              description="Professionally sourced and inspected OEM components with fast shipping, warranty-backed confidence, and transparent pricing."
+              description="Professionally sourced and inspected OEM components with fast nationwide shipping, warranty-backed confidence, and premium reliability."
               align="center"
               theme="dark"
-              className="max-w-4xl [&_h2]:text-4xl [&_h2]:font-black [&_h2]:tracking-tight sm:[&_h2]:text-5xl md:[&_h2]:text-6xl [&_p]:mx-auto [&_p]:max-w-2xl [&_p]:text-slate-300"
+              className="max-w-5xl [&_h2]:text-5xl [&_h2]:font-black [&_h2]:leading-[0.95] [&_h2]:tracking-[-0.04em] sm:[&_h2]:text-6xl lg:[&_h2]:text-7xl [&_p]:mx-auto [&_p]:mt-8 [&_p]:max-w-3xl [&_p]:text-lg [&_p]:leading-8 [&_p]:text-slate-300"
             />
           </div>
         </Reveal>
 
-        <div className="mt-14 grid auto-rows-[minmax(290px,auto)] gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {/* GRID */}
+        <div className="mt-20 grid auto-rows-[minmax(220px,auto)] gap-6 md:grid-cols-2 xl:grid-cols-4">
+          
           {parts.map((part, index) => {
             const style = cardStyles[index];
 
             return (
-              <Reveal key={part.title} delay={index * 0.04} className={style.grid}>
+              <Reveal
+                key={part.title}
+                delay={index * 0.05}
+                className={style.grid}
+              >
                 <Link
                   href={part.href}
-                  className="group relative block h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-[1px] shadow-2xl shadow-black/35 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-cyan-200/45 hover:shadow-cyan-500/20"
+                  className="group relative block h-full overflow-hidden rounded-[34px]"
                 >
-                  <span className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[linear-gradient(120deg,transparent,rgba(125,249,255,0.24),transparent)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <span className={`pointer-events-none absolute -inset-20 opacity-80 blur-3xl transition-transform duration-700 group-hover:scale-110 ${style.glow}`} />
+                  
+                  {/* OUTER GLOW */}
+                  <div className="absolute -inset-[1px] rounded-[34px] bg-gradient-to-br from-cyan-400/30 via-white/5 to-transparent opacity-0 blur-xl transition-all duration-700 group-hover:opacity-100" />
 
-                  <article className="relative flex h-full flex-col overflow-hidden rounded-[calc(2rem-1px)] bg-[#0B1220]/72 p-5 ring-1 ring-white/10 sm:p-6">
-                    <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" />
-                    <div className="pointer-events-none absolute right-0 top-0 h-28 w-28 rounded-full bg-cyan-300/10 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
-
-                    <div className="mb-5 flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-[0.68rem] font-bold uppercase tracking-[0.24em] text-cyan-200/90">
-                          {style.label}
-                        </p>
-                        <div className="mt-3 inline-flex rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-slate-300 backdrop-blur-md">
-                          OEM Verified
-                        </div>
-                      </div>
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-cyan-200/20 bg-cyan-300/10 text-cyan-100 shadow-lg shadow-cyan-500/10 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:bg-cyan-300/20">
-                        <span aria-hidden="true">-&gt;</span>
-                      </span>
+                  {/* CARD */}
+                  <article className="relative flex h-full flex-col overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-3 group-hover:border-cyan-300/30 group-hover:bg-white/[0.08]">
+                    
+                    {/* LIGHT SWEEP */}
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100">
+                      <div className="absolute inset-y-0 left-[-120%] w-[120%] rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 group-hover:left-[120%]" />
                     </div>
 
-                    <div className={`relative mb-6 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/12 via-white/5 to-transparent ${style.image}`}>
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(125,249,255,0.26),transparent_42%),radial-gradient(circle_at_50%_74%,rgba(0,0,0,0.45),transparent_45%)]" />
-                      <div className="absolute bottom-6 left-1/2 h-5 w-2/3 -translate-x-1/2 rounded-full bg-black/55 blur-xl transition-all duration-500 group-hover:w-3/4 group-hover:bg-cyan-950/70" />
-                      <div className="absolute inset-x-5 top-5 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                      <div className="animate-premium-float relative h-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
+                    {/* CARD GLOW */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${style.glow} opacity-70`}
+                    />
+
+                    {/* TOP BAR */}
+                    <div className="relative z-10 flex items-start justify-between">
+                      
+                      <div className="inline-flex rounded-full border border-cyan-300/15 bg-cyan-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-100">
+                        {part.badge}
+                      </div>
+
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-cyan-100 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:border-cyan-300/40 group-hover:bg-cyan-400/10">
+                        →
+                      </div>
+                    </div>
+
+                    {/* IMAGE CONTAINER */}
+                    <div
+                      className={`relative mt-6 overflow-hidden rounded-[28px] border border-white/10 bg-[#0b1220] ${style.image}`}
+                    >
+                      
+                      {/* IMAGE LIGHTING */}
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(125,249,255,0.22),transparent_40%),radial-gradient(circle_at_bottom,rgba(0,0,0,0.55),transparent_50%)]" />
+
+                      {/* SHADOW */}
+                      <div className="absolute bottom-5 left-1/2 h-6 w-[70%] -translate-x-1/2 rounded-full bg-black/70 blur-2xl transition-all duration-700 group-hover:w-[78%] group-hover:bg-cyan-950/70" />
+
+                      {/* IMAGE */}
+                      <div className="animate-premium-float relative h-full transition-transform duration-700 group-hover:scale-105">
                         <Image
                           src={part.image}
                           alt={part.title}
                           fill
-                          className="object-contain p-5 drop-shadow-[0_28px_38px_rgba(0,0,0,0.55)] transition-transform duration-700 group-hover:scale-110"
+                          className="object-contain p-6 drop-shadow-[0_35px_45px_rgba(0,0,0,0.7)] transition-transform duration-700 group-hover:scale-110"
                         />
                       </div>
                     </div>
 
-                    <div className="mt-auto">
-                      <div className="mb-3 flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-cyan-200/15">
-                          {style.stat}
-                        </span>
-                        <span className="rounded-full bg-white/8 px-3 py-1 text-xs font-semibold text-slate-300 ring-1 ring-white/10">
-                          Fast Shipping
-                        </span>
+                    {/* CONTENT */}
+                    <div className="relative z-10 mt-6 flex flex-1 flex-col">
+                      
+                      {/* TAGS */}
+                      <div className="mb-4 flex flex-wrap gap-2">
+                        {part.specs.map((spec) => (
+                          <span
+                            key={spec}
+                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold text-slate-200 backdrop-blur-xl"
+                          >
+                            {spec}
+                          </span>
+                        ))}
                       </div>
-                      <h3 className={`${style.title} font-black leading-tight tracking-tight text-white`}>
+
+                      {/* TITLE */}
+                      <h3
+                        className={`${style.title} font-black leading-[1] tracking-[-0.03em] text-white`}
+                      >
                         {part.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-300">{part.description}</p>
-                      <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-cyan-200 transition-colors group-hover:text-white">
-                        View Details
-                        <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
-                          -&gt;
-                        </span>
+
+                      {/* DESCRIPTION */}
+                      <p className="mt-4 max-w-[90%] text-sm leading-7 text-slate-300">
+                        {part.description}
+                      </p>
+
+                      {/* FOOTER */}
+                      <div className="mt-auto pt-8">
+                        <div className="flex items-center justify-between">
+                          
+                          <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-cyan-200 transition-all duration-300 group-hover:gap-4 group-hover:text-white">
+                            View Details
+                            <span className="transition-transform duration-300 group-hover:translate-x-2">
+                              →
+                            </span>
+                          </div>
+
+                          <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent sm:block" />
+                        </div>
                       </div>
                     </div>
+
+                    {/* NOISE */}
+                    <div className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-soft-light [background-image:url('/noise.png')]" />
                   </article>
                 </Link>
               </Reveal>
@@ -200,13 +274,18 @@ export default function QualityParts() {
           })}
         </div>
 
-        <Reveal className="mt-12 flex justify-center">
-          <Button href="/used-auto-parts" variant="primary" size="xl" className="rounded-full px-9 py-4 uppercase tracking-[0.12em] shadow-cyan-500/30">
-            View More Parts
+        {/* CTA */}
+        <Reveal className="mt-16 flex justify-center">
+          <Button
+            href="/used-auto-parts"
+            variant="primary"
+            size="xl"
+            className="group relative overflow-hidden rounded-full border border-cyan-300/20 bg-gradient-to-r from-cyan-500 to-sky-500 px-10 py-5 text-sm font-black uppercase tracking-[0.2em] text-white shadow-[0_20px_60px_rgba(0,209,255,0.35)] transition-all duration-500 hover:scale-105 hover:shadow-[0_25px_80px_rgba(0,209,255,0.45)]"
+          >
+            <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent)] opacity-0 transition-all duration-1000 group-hover:translate-x-full group-hover:opacity-100" />
+            <span className="relative z-10">Explore More Parts</span>
           </Button>
         </Reveal>
-
-        <div className="pointer-events-none absolute -bottom-20 left-1/2 h-40 w-2/3 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
       </Container>
     </section>
   );
