@@ -39,6 +39,7 @@ export default function UsedEnginesPage() {
       sectionLead="Whether you need a direct OEM replacement or budget-conscious recovery option, we help you choose confidently."
       features={features}
       partLabel="used engines"
+      showBrandImages
     />
   );
 }

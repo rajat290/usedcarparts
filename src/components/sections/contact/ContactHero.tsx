@@ -9,6 +9,12 @@ const quickActions = [
   { label: "Visit our office", value: "8735 Dunwoody Pl Ste R Atlanta, GA 30350, USA", href: "https://www.google.com/maps/search/?api=1&query=8735+Dunwoody+Pl+Ste+R+Atlanta+GA+30350", icon: MapPin },
 ];
 
+const primaryCtaClass =
+  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
+
+const secondaryCtaClass =
+  "h-14 items-center justify-center rounded-xl border border-white/25 bg-white/10 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-transform duration-150";
+
 export default function ContactHero() {
   return (
     <SubHero
@@ -17,8 +23,8 @@ export default function ContactHero() {
       description="Send your vehicle details, call for fast help, or email us for compatibility checks, pricing, warranty support, and shipping timelines."
       actions={
         <>
-          <Button href="tel:7705984665" size="lg">Call Now</Button>
-          <Button href="#contact-form" variant="outline" size="lg" className="border-slate-300 bg-white text-slate-900 hover:bg-slate-100">Send A Message</Button>
+          <Button href="tel:7705984665" size="lg" className={primaryCtaClass}>Call Now</Button>
+          <Button href="#contact-form" variant="outline" size="lg" className={secondaryCtaClass}>Send A Message</Button>
         </>
       }
       rightSlot={
