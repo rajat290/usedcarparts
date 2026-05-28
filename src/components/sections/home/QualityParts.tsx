@@ -110,7 +110,7 @@ const cardStyles = [
 
 export default function QualityParts() {
   return (
-    <section className="relative overflow-hidden bg-[#030712] py-24 text-white sm:py-32">
+    <section className="relative overflow-hidden bg-slate-950 py-24 text-white sm:py-32">
       
       {/* PREMIUM BACKGROUND */}
       <div className="absolute inset-0 overflow-hidden">
@@ -202,7 +202,7 @@ export default function QualityParts() {
 
                     {/* IMAGE CONTAINER */}
                     <div
-                      className={`relative mt-6 overflow-hidden rounded-[28px] border border-white/10 bg-[#0b1220] ${style.image}`}
+                      className={`relative mt-6 overflow-hidden rounded-[28px] border border-white/10 bg-slate-900 ${style.image}`}
                     >
                       
                       {/* IMAGE LIGHTING */}

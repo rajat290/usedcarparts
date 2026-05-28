@@ -61,7 +61,6 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                style={{ color: "#ffffff" }}
                 className={[
                   "relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200",
                   "hover:text-white hover:bg-white/10",

@@ -57,7 +57,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div id="vehicle-selector" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.2, 1, 0.3, 1], delay: 0.25 }}>
-            <VehicleSelectorForm theme="dark" />
+            <VehicleSelectorForm />
           </motion.div>
         </div>
       </Container>

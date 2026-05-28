@@ -41,7 +41,7 @@ export default function ProductLandingTemplate({
         <div className="pointer-events-none absolute inset-0 opacity-35">
           <Image src={heroImage} alt={heroImageAlt} fill className="object-cover" sizes="100vw" priority />
         </div>
-        <div className={`absolute inset-0 ${heroTintClass}`} />
+        <div className={`theme-hero-tint absolute inset-0 ${heroTintClass}`} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(14,165,233,0.22),transparent_55%)]" />
 
         <Container className="relative py-16 sm:py-20 lg:py-24">
@@ -61,7 +61,7 @@ export default function ProductLandingTemplate({
             </div>
 
             <div id="vehicle-selector" className="rounded-3xl border border-white/10 bg-slate-950/85 p-6 shadow-2xl shadow-black/40 sm:p-8">
-              <VehicleSelectorForm theme="dark" />
+              <VehicleSelectorForm />
             </div>
           </div>
         </Container>
