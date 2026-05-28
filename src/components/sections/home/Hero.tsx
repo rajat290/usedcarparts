@@ -7,7 +7,7 @@ import Container from "@/components/ui/Container";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-const heading = "Reliable OEM Parts. Real Value. Real Fast.";
+const heading = "Reliable OEM Parts. Real Value. Real Fast";
 
 function SplitChars({ text }: { text: string }) {
   return (
@@ -50,13 +50,19 @@ export default function Hero() {
             <p className="mt-6 text-base leading-8 text-slate-200 sm:text-lg">
               Quality-tested, perfectly matched used parts for every major make and model, with fast shipping and a dedicated support team.
             </p>
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row lg:translate-x-6">
               <MagneticButton href="#vehicle-selector" label="Find A Part Now" />
               <MagneticButton href="tel:7705984665" label="Call (770) 598-4665" variant="outline" />
             </div>
           </motion.div>
 
-          <motion.div id="vehicle-selector" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.2, 1, 0.3, 1], delay: 0.25 }}>
+          <motion.div
+            id="vehicle-selector"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: [0.2, 1, 0.3, 1], delay: 0.25 }}
+            className="relative -top-10 lg:-top-20"
+          >
             <VehicleSelectorForm theme="dark" />
           </motion.div>
         </div>

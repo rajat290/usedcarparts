@@ -10,6 +10,12 @@ const highlights = [
   { label: "Nationwide Shipping", icon: PackageCheck },
 ];
 
+const primaryCtaClass =
+  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
+
+const secondaryCtaClass =
+  "h-14 items-center justify-center rounded-xl border border-white/25 bg-white/10 px-9 text-base font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-transform duration-150";
+
 export default function AboutHero() {
   return (
     <SubHero
@@ -18,8 +24,8 @@ export default function AboutHero() {
       description="Parts Central of Georgia helps drivers, repair shops, and vehicle owners find dependable used engines, transmissions, and auto parts without the guesswork."
       actions={
         <>
-          <Button href="/contact" size="lg">Request A Quote</Button>
-          <Button href="tel:7705984665" variant="outline" size="lg" className="border-slate-300 bg-white text-slate-900 hover:bg-slate-100">
+          <Button href="/contact" size="lg" className={secondaryCtaClass}>Request A Quote</Button>
+          <Button href="tel:7705984665" size="lg" className={primaryCtaClass}>
             Call (770) 598-4665
           </Button>
         </>

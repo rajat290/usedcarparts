@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import MagneticButton from "@/components/ui/MagneticButton";
 import VehicleSelectorForm from "@/components/forms/VehicleSelectorForm";
 import MakeGrid from "@/components/sections/home/MakeGrid";
 
@@ -21,6 +21,7 @@ type ProductLandingTemplateProps = {
   sectionLead: string;
   features: FeatureBlock[];
   partLabel: string;
+  showBrandImages?: boolean;
 };
 
 export default function ProductLandingTemplate({
@@ -34,6 +35,7 @@ export default function ProductLandingTemplate({
   sectionLead,
   features,
   partLabel,
+  showBrandImages = false,
 }: ProductLandingTemplateProps) {
   return (
     <>
@@ -50,17 +52,13 @@ export default function ProductLandingTemplate({
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">{eyebrow}</p>
               <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">{title}</h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">{subtitle}</p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button href="#vehicle-selector" size="lg" className="rounded-xl px-8 py-4 uppercase tracking-wider">
-                  Find A Part Now
-                </Button>
-                <Button href="tel:7705984665" variant="outline" size="lg" className="rounded-xl px-8 py-4 uppercase tracking-wider">
-                  Call (770) 598-4665
-                </Button>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row lg:translate-x-6">
+                <MagneticButton href="#vehicle-selector" label="Find A Part Now" />
+                <MagneticButton href="tel:7705984665" label="Call (770) 598-4665" variant="outline" />
               </div>
             </div>
 
-            <div id="vehicle-selector" className="rounded-3xl border border-white/10 bg-slate-950/85 p-6 shadow-2xl shadow-black/40 sm:p-8">
+            <div id="vehicle-selector" className="relative -top-10 lg:-top-20">
               <VehicleSelectorForm theme="dark" />
             </div>
           </div>
@@ -88,7 +86,7 @@ export default function ProductLandingTemplate({
         </Container>
       </section>
 
-      <MakeGrid partLabel={partLabel} />
+      <MakeGrid partLabel={partLabel} showBrandImages={showBrandImages} />
     </>
   );
 }
