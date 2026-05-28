@@ -161,10 +161,32 @@ function VehicleFormInner({ theme }: { theme: Theme }) {
   );
 }
 
-export default function VehicleSelectorForm({ theme = "dark" }: { theme?: Theme }) {
+function useSelectedTheme(fallback: Theme): Theme {
+  const [selectedTheme, setSelectedTheme] = useState<Theme>(fallback);
+
+  useEffect(() => {
+    const root = document.documentElement;
+
+    function syncTheme() {
+      setSelectedTheme(root.classList.contains("dark") ? "dark" : "light");
+    }
+
+    syncTheme();
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return selectedTheme;
+}
+
+export default function VehicleSelectorForm({ theme }: { theme?: Theme }) {
+  const selectedTheme = useSelectedTheme(theme ?? "light");
+
   return (
     <Suspense fallback={<div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-6 text-center text-sm text-slate-500">Loading form...</div>}>
-      <VehicleFormInner theme={theme} />
+      <VehicleFormInner theme={selectedTheme} />
     </Suspense>
   );
 }

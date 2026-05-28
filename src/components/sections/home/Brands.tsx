@@ -29,6 +29,7 @@ const brands = [
 
 export default function Brands() {
   const topRow = brands.slice(0, 10);
+  const middleRow = brands.slice(10, 20);
   const bottomRow = brands.slice(10);
 
   function MarqueeRow({ items, reverse = false }: { items: typeof brands; reverse?: boolean }) {
@@ -83,6 +84,7 @@ export default function Brands() {
           <div className="space-y-4">
             <MarqueeRow items={topRow} />
             <MarqueeRow items={bottomRow} reverse />
+            <MarqueeRow items={middleRow} />
           </div>
         </Reveal>
 
