@@ -41,6 +41,20 @@ export default function Hero() {
 
   const yImage = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const yCopy = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const heroActions = (
+    <>
+      <MagneticButton
+        href="#vehicle-selector"
+        label="Find A Part Now"
+      />
+
+      <MagneticButton
+        href="tel:7705984665"
+        label="Call (770) 598-4665"
+        variant="outline"
+      />
+    </>
+  );
 
   return (
     <section
@@ -82,17 +96,8 @@ export default function Hero() {
               and model, with fast shipping and a dedicated support team.
             </p>
 
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row lg:translate-x-6">
-              <MagneticButton
-                href="#vehicle-selector"
-                label="Find A Part Now"
-              />
-
-              <MagneticButton
-                href="tel:7705984665"
-                label="Call (770) 598-4665"
-                variant="outline"
-              />
+            <div className="mt-9 hidden flex-col gap-4 sm:flex-row lg:flex lg:translate-x-6">
+              {heroActions}
             </div>
           </motion.div>
 
@@ -109,6 +114,10 @@ export default function Hero() {
           >
             <VehicleSelectorForm theme="dark" />
           </motion.div>
+
+          <div className="-mt-8 flex flex-col gap-4 sm:flex-row lg:hidden">
+            {heroActions}
+          </div>
         </div>
       </Container>
     </section>
