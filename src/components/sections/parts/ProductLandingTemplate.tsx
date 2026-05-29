@@ -86,6 +86,21 @@ export default function ProductLandingTemplate({
   heroContentClassName = "",
   showBrandImages = false,
 }: ProductLandingTemplateProps) {
+  const heroActions = (
+    <>
+      <MagneticButton
+        href="#vehicle-selector"
+        label="Find A Part Now"
+      />
+
+      <MagneticButton
+        href="tel:7705984665"
+        label="Call (770) 598-4665"
+        variant="outline"
+      />
+    </>
+  );
+
   return (
     <>
       {/* HERO SECTION */}
@@ -130,17 +145,8 @@ export default function ProductLandingTemplate({
                 {subtitle}
               </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <MagneticButton
-                  href="#vehicle-selector"
-                  label="Find A Part Now"
-                />
-
-                <MagneticButton
-                  href="tel:7705984665"
-                  label="Call (770) 598-4665"
-                  variant="outline"
-                />
+              <div className="mt-8 hidden flex-col gap-4 sm:flex-row lg:flex">
+                {heroActions}
               </div>
 
               {/* Highlights */}
@@ -182,6 +188,10 @@ export default function ProductLandingTemplate({
             >
               <VehicleSelectorForm theme="dark" />
             </motion.div>
+
+            <div className="-mt-10 flex flex-col gap-4 sm:flex-row lg:hidden">
+              {heroActions}
+            </div>
           </div>
         </Container>
       </section>

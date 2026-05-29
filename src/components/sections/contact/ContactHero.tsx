@@ -10,7 +10,7 @@ const quickActions = [
 ];
 
 const primaryCtaClass =
-  "h-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-xl shadow-cyan-500/35 transition-transform duration-150 after:rounded-xl";
+  "h-14 items-center justify-center rounded-xl bg-primary px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-xl shadow-primary/25 transition-transform duration-150 after:rounded-xl hover:bg-primary-dark";
 
 const secondaryCtaClass =
   "h-14 items-center justify-center rounded-xl border border-primary bg-primary px-9 text-center text-base font-semibold leading-none uppercase tracking-[0.08em] text-white shadow-lg shadow-primary/20 transition-transform duration-150 hover:border-primary-dark hover:bg-primary-dark";

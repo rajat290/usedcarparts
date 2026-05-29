@@ -153,7 +153,7 @@ function VehicleFormInner({ theme }: { theme: Theme }) {
         <TextField label="Phone" name="phone" placeholder="(123) 456-7890" type="tel" theme={theme} />
       </div>
 
-      <button className="mt-4 flex h-11 w-full items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-red-700 px-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5" disabled={isSending} type="submit">
+      <button className="mt-4 flex h-11 w-full items-center justify-center rounded-xl bg-primary px-4 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark" disabled={isSending} type="submit">
         {isSending ? "Sending..." : "Find My Part Now"}
       </button>
       {submitMessage ? <div className={cx("mt-4 rounded-xl px-4 py-3 text-center text-sm font-semibold", submitStatus === "success" ? "bg-emerald-500/15 border border-emerald-500/20 text-emerald-500" : "bg-red-500/15 border border-red-500/20 text-red-500")}>{submitMessage}</div> : null}

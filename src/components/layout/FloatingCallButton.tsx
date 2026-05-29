@@ -2,7 +2,7 @@ export default function FloatingCallButton() {
   return (
     <a
       href="tel:7705984665"
-      className="fixed bottom-6 left-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-green-500 text-slate-950 shadow-2xl shadow-green-500/35 transition-all duration-200 hover:-translate-y-0.5 hover:from-emerald-300 hover:to-green-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2"
+      className="fixed bottom-6 left-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-2xl shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       aria-label="Call Parts Central"
     >
       <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">

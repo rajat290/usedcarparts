@@ -280,7 +280,7 @@ export default function QualityParts() {
             href="/used-auto-parts"
             variant="primary"
             size="xl"
-            className="group relative overflow-hidden rounded-full border border-cyan-300/20 bg-gradient-to-r from-cyan-500 to-sky-500 px-10 py-5 text-sm font-black uppercase tracking-[0.2em] text-white shadow-[0_20px_60px_rgba(0,209,255,0.35)] transition-all duration-500 hover:scale-105 hover:shadow-[0_25px_80px_rgba(0,209,255,0.45)]"
+            className="group relative overflow-hidden rounded-full border border-white/15 bg-primary px-10 py-5 text-sm font-black uppercase tracking-[0.2em] text-white shadow-xl shadow-primary/25 transition-all duration-500 hover:scale-105 hover:bg-primary-dark"
           >
             <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent)] opacity-0 transition-all duration-1000 group-hover:translate-x-full group-hover:opacity-100" />
             <span className="relative z-10">Explore More Parts</span>
